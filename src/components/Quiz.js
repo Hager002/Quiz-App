@@ -23,7 +23,6 @@ export class Quiz extends Component {
     }
     // die oben genannten states definieren
 
-
     render() {
 
         console.log(questions);
