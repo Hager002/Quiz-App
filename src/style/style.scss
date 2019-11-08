@@ -1,0 +1,79 @@
+@import './fragen.scss'; 
+
+.App {
+  max-width: 90%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.App-header {
+  height: 11rem; 
+  
+  h1 {
+    text-align: center;
+  }
+}
+
+.App-navi {
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+.App-body {
+  max-width: 60rem;
+  border-right: 2px solid rgba(0, 0, 0, 0.137);
+  border-left: 2px solid rgba(0, 0, 0, 0.137);
+  margin: 0rem; 
+  padding: 1rem;
+}
+
+.App-login, .App-registrieren {
+  border: 3px solid rgba(0, 0, 0, 0.137); 
+  padding: 1rem; 
+  max-width: 50%; 
+  margin: 2rem auto; 
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 1rem; 
+  }
+
+}
+
+.Fach, .Schwierigkeit {
+  border: 3px solid rgba(0, 0, 0, 0.137); 
+  max-width: 50%; 
+  margin: 2rem auto;
+  padding: 1rem; 
+}
+
+.StartQuiz {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.ButtonInstruction {
+  width: 36%;
+  margin-left: 32%;
+  margin-right: 32%;
+  margin-bottom: 1rem; 
+}
+
+.EinAblauf {
+  border: 3px solid rgba(0, 0, 0, 0.137); 
+  margin: 2rem auto;
+  padding: 1rem; 
+}
+
+.logout {
+  margin-left: 92%;
+  margin-top: 1rem;
+}

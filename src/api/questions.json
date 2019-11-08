@@ -1,0 +1,48 @@
+[
+
+    {
+        "question": "What is D...?",
+        "optionA": "A",
+        "optionB": "B",
+        "optionC": "C",
+        "optionD": "D",
+        "answer": "D"  
+    },
+
+    {
+        "question": "What is A...?",
+        "optionA": "A",
+        "optionB": "B",
+        "optionC": "C",
+        "optionD": "D",
+        "answer": "A"  
+    },
+
+    {
+        "question": "What is B...?",
+        "optionA": "A",
+        "optionB": "B",
+        "optionC": "C",
+        "optionD": "D",
+        "answer": "B"  
+    },
+
+    {
+        "question": "What is C...?",
+        "optionA": "A",
+        "optionB": "B",
+        "optionC": "C",
+        "optionD": "D",
+        "answer": "C"  
+    },
+
+    {
+        "question": "What is ...?",
+        "optionA": "A",
+        "optionB": "B",
+        "optionC": "C",
+        "optionD": "D",
+        "answer": "D"  
+    }
+
+]

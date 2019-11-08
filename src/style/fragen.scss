@@ -1,0 +1,49 @@
+
+
+.questions {
+    width: 100%;
+    margin: auto;
+    padding: 2rem;
+    border: 3px solid rgba(0, 0, 0, 0.137); 
+
+    h5 {
+        font-size: 1.5rem;
+        margin-bottom: 1g;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .options-container {
+        display: inline-block;
+        width: 50%;
+        padding-bottom: 1rem;
+    }
+
+    .option{
+        background-color: rgba(39, 42, 44, 0.199);
+        border-radius:  15px ;
+        color: white;
+        cursor: pointer;
+        margin: 1rem;
+        padding: 1rem; 
+        transition: 0.3s linear all;
+        text-align: center;
+        width: 95%;
+    }
+    .option:hover {
+        background-color: darken(rgba(39, 42, 44, 0.199), 20%);
+    }
+
+    .button-container {
+        .previous, .next, .quit  {
+        width: 10%;
+        padding: 15px;
+        box-sizing: border-box;
+        border-radius: 100px;
+        background: #dfdfdf;
+        }    
+    }
+
+}
+
+
