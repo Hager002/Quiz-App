@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
 
-export class Login extends Component {
+export class Registrieren extends Component {
     State = {
         email: '',
         password: ''
@@ -19,12 +19,22 @@ export class Login extends Component {
     render() {
         return (
             <Fragment>
-                <Helmet><title>Quiz App - Login</title></Helmet>
+                <Helmet><title>Quiz App - Registrieren</title></Helmet>
 
-                <section className="App-login container">
+                <section className="App-registrieren container">
 
-                    <form className="login" onSubmit={this.handleSubmit}>
-                        <h1>Login</h1>
+                    <form className="registrieren" onSubmit={this.handleSubmit}>
+                        <h1>Registrieren</h1>
+
+                        <div className="input-field">
+                            <label htmlFor="name">Name: </label>
+                            <input type="text" placeholder="Max Musterman" id="name" onChange={this.handleChange} />
+                        </div>
+
+                        <div className="input-field">
+                            <label htmlFor="gbdatum">Geburtsdatum: </label>
+                            <input type="date" id="gbdatum" onChange={this.handleChange} />
+                        </div>
 
                         <div className="input-field">
                             <label htmlFor="email">Email Adresse: </label>
@@ -41,10 +51,9 @@ export class Login extends Component {
                                 Submit </button>
                         </div>
                     </form>
-
                 </section>
-
             </Fragment>
+
 
         )
     }
