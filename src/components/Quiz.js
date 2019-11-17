@@ -7,54 +7,163 @@ export class Quiz extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            questions: [],
+            questions: questions,
             currentQuestion: {},
             nextQuestion: {},
             previousQuestion: {},
             answer: '',
+
             numberOfQuestions: 0,
             numberOfAnsweredQuestions: 0,
             currentQuestionIndex: 0,
-            score: 0,
             correctAnswers: 0,
             wrongAnswers: 0,
-            time: {}
+            score: 0
         };
     }
-    // die oben genannten states definieren
+
+    // componentDidMount = Lifecycle Methode 
+    componentDidMount() {
+        const {
+            questions, previousQuestion, currentQuestion, nextQuestion
+        } = this.state;
+
+        this.displayAllQuestions(
+            questions, previousQuestion, currentQuestion, nextQuestion
+        );
+    }
+
+    displayAllQuestions = (
+        questions = this.state.questions, previousQuestion, currentQuestion, nextQuestion
+    ) => {
+        let { currentQuestionIndex } = this.state;
+
+        if (this.state.questions) {
+            questions = this.state.questions;
+            previousQuestion = questions[currentQuestionIndex - 1];
+            currentQuestion = questions[currentQuestionIndex];
+            nextQuestion = questions[currentQuestionIndex + 1];
+            const answer = currentQuestion.answer;
+
+            this.setState({
+                previousQuestion: previousQuestion,
+                currentQuestion: currentQuestion,
+                nextQuestion: nextQuestion,
+                numberOfQuestions: questions.length,
+                answer: answer
+            });
+
+        } else { }
+    };
+
+    handleOptionClick = (event) => {
+        if (event.target.innerHTML === this.state.answer) {
+            this.correctAnswer();
+        } else {
+            this.wrongAnswer();
+        }
+    }
+
+    correctAnswer = () => {
+        console.log('correct');
+        this.setState(({
+            correctAnswers: this.state.correctAnswers + 1,
+            score: this.state.score + 1,
+            currentQuestionIndex: this.state.currentQuestionIndex + 1,
+            numberOfAnsweredQuestions: this.state.numberOfAnsweredQuestions + 1
+        }),
+            () => {
+                this.displayAllQuestions(
+                    this.state.questions,
+                    this.state.previousQuestion,
+                    this.state.currentQuestion,
+                    this.state.nextQuestion
+                    );
+            }
+        );
+    }
+
+    wrongAnswer = () => {
+        console.log('Wrong');
+        this.setState(({
+            wrongAnswers: this.state.wrongAnswers + 1,
+            currentQuestionIndex: this.state.currentQuestionIndex + 1,
+            numberOfAnsweredQuestions: this.state.numberOfAnsweredQuestions + 1
+        }),
+            () => {
+                this.displayAllQuestions(
+                    this.state.questions,
+                    this.state.previousQuestion,
+                    this.state.currentQuestion,
+                    this.state.nextQuestion);
+            }
+        );
+    }
+
+    // Buttons: Next, Previous & Quit
+    handleButtonClickNext = () => {
+        if (this.state.nextQuestion !== undefined) {
+            this.setState(({
+                currentQuestionIndex: this.state.currentQuestionIndex + 1
+            }), () => {
+                this.displayAllQuestions(
+                    this.state.state,
+                    this.state.previousQuestion,
+                    this.state.currentQuestion,
+                    this.state.nextQuestion)
+            })
+        }
+    }
+
+    handleButtonClickPrevious = () => {
+        if (this.state.previousQuestion !== undefined) {
+            this.setState(({
+                currentQuestionIndex: this.state.currentQuestionIndex - 1
+            }), () => {
+                this.displayAllQuestions(
+                    this.state.state,
+                    this.state.previousQuestion,
+                    this.state.currentQuestion,
+                    this.state.nextQuestion)
+            })
+        }
+    }
+
+    handleButtonClickQuit = () => {
+        if (window.confirm('Quit?')) {
+            this.props.history.push('/home');
+        } else { }
+    }
+
 
     render() {
 
-        console.log(questions);
+        //console.log(questions)
+        const { currentQuestion, currentQuestionIndex, numberOfQuestions } = this.state;
+
         return (
             <Fragment>
-                <Helmet><title>Quiz-Page</title></Helmet>
+                <Helmet><title>Quiz-Gameboard</title></Helmet>
                 <div className="questions">
-
-                    {/* Eventuell: 50/50 Jocker */}
-
-                    {/* Anzeige der Fragenanzahl & übrige Zeit */}
                     <div className="info">
                         <p>
-                            <span>1 of 10</span>
-                            <span className="mdi mdi-clock-outline mdi-24px"></span>
+                            <span>{currentQuestionIndex + 1} of {numberOfQuestions} questions</span>
                         </p>
                     </div>
 
-                    <h5>Meine Frage?</h5>
+                    <h2 className="question">{currentQuestion.question}</h2>
+
                     <div className="options-container">
-                        <p className="option"> A: 1.Antwort </p>
-                        <p className="option"> B: 2.Antwort </p>
-                    </div>
-                    <div className="options-container">
-                        <p className="option"> C: 3.Antwort </p>
-                        <p className="option"> D: 4.Antwort </p>
+                        <p onClick={this.handleOptionClick} className="option"> {currentQuestion.optionA} </p>
+                        <p onClick={this.handleOptionClick} className="option"> {currentQuestion.optionB} </p>
+                        <p onClick={this.handleOptionClick} className="option"> {currentQuestion.optionC} </p>
+                        <p onClick={this.handleOptionClick} className="option"> {currentQuestion.optionD} </p>
                     </div>
 
                     <div className="button-container">
-                        <button className="previous">Previous</button>
-                        <button className="next">Next</button>
-                        <button className="quit">Quit</button>
+                        <button onClick={this.handleButtonClickPrevious} className="previous">Previous</button>
+                        <button onClick={this.handleButtonClickNext} className="next">Next</button>
+                        <button onClick={this.handleButtonClickQuit} className="quit">Quit</button>
                     </div>
                 </div>
             </Fragment>

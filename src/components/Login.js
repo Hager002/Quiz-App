@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
+import { Button } from 'react-bootstrap';
 
 export class Login extends Component {
     State = {
@@ -38,8 +39,13 @@ export class Login extends Component {
 
                         <div className="input-field">
                             <button variant="primary" type="submit">
-                                Submit </button>
+                                Anmelden </button>
                         </div>
+
+                        <Button className="reg"
+                            onClick={() => { this.props.history.replace('/registrieren') }}>
+                            Neues Konto erstellen 
+                        </Button>
                     </form>
 
                 </section>

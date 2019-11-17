@@ -54,7 +54,6 @@ export class Registrieren extends Component {
                 </section>
             </Fragment>
 
-
         )
     }
 

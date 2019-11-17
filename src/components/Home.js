@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import AppFach from './App-Fach';
+import AppThema from './App-Thema';
 import AppSchwierigkeitsgrad from './App-Schwierigkeitsgrad';
 import { AppModal } from './App-Modal';
 import { Button, ButtonToolbar } from 'react-bootstrap';
@@ -28,7 +28,7 @@ export class Home extends Component {
 
                 <div id="game">
 
-                    <AppFach />
+                    <AppThema />
                     <AppSchwierigkeitsgrad />
 
                     {/* Eventuell: Instruction */}
@@ -46,8 +46,8 @@ export class Home extends Component {
                     </ButtonToolbar>
 
                     <Button className="StartQuiz"
-                        onClick={() => { this.props.history.replace('/quiz') }}>
-                        Starte das Quiz
+                        onClick={() => { this.props.history.replace('/themeninhalt') }}>
+                        Start
                 </Button>
 
                 </div>

@@ -8,6 +8,7 @@ import { Home } from './components/Home';
 import { Verlauf } from './components/Verlauf';
 import { Quiz } from './components/Quiz';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import  Themeninhalt from './components/Themeninhalte';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
 
       <header className="App-header jumbotron">
         <h1>Quiz Web-App</h1>
+        <h2> Physik 5 </h2>
       </header>
 
       <body className="App-body container">
@@ -28,6 +30,7 @@ function App() {
               <Route path='/home' component={Home}  />
               <Route path='/verlauf' component={Verlauf}  />
               <Route path='/quiz' component={Quiz}  />
+              <Route path='/themeninhalt' component={Themeninhalt} />
             </Switch>
           </div>
         </BrowserRouter>

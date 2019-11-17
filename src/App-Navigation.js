@@ -9,10 +9,6 @@ class Navigation extends Component {
 
             <div>
                 <Navbar variant="tabs" defaultActiveKey="/home" href="/home">
-                    {/* <Nav.Item>
-                        <Nav.Link href="/">
-                            Login</Nav.Link>
-                    </Nav.Item> */}
 
                     <Nav.Item>
                         <Nav.Link eventKey="/home" href="/home">
@@ -23,6 +19,7 @@ class Navigation extends Component {
                         <Nav.Link eventKey="/verlauf" href="/verlauf">
                             Verlauf</Nav.Link>
                     </Nav.Item>
+                    
                 </Navbar>
             </div>
 
