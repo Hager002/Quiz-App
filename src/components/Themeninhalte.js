@@ -1,7 +1,7 @@
 
 import React, { Fragment, Component } from 'react';
 import { Helmet } from 'react-helmet';
-import { Button, ButtonToolbar } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 
 class Themeninhalt extends Component {

@@ -139,7 +139,9 @@ export class Quiz extends Component {
     render() {
 
         //console.log(questions)
-        const { currentQuestion, currentQuestionIndex, numberOfQuestions } = this.state;
+        const {currentQuestion} = this.state;
+        const {currentQuestionIndex} = this.state;
+        const {numberOfQuestions} = this.state;
 
         return (
             <Fragment>
@@ -147,7 +149,7 @@ export class Quiz extends Component {
                 <div className="questions">
                     <div className="info">
                         <p>
-                            <span>{currentQuestionIndex + 1} of {numberOfQuestions} questions</span>
+                            <span>{currentQuestionIndex + 1} of {numberOfQuestions} </span>
                         </p>
                     </div>
 
@@ -171,3 +173,4 @@ export class Quiz extends Component {
     }
 
 }
+

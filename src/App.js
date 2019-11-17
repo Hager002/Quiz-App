@@ -7,6 +7,7 @@ import { Registrieren } from './components/Registrieren';
 import { Home } from './components/Home';
 import { Verlauf } from './components/Verlauf';
 import { Quiz } from './components/Quiz';
+import { Ergebnis } from './components/Ergebnis';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import  Themeninhalt from './components/Themeninhalte';
 
@@ -31,6 +32,7 @@ function App() {
               <Route path='/verlauf' component={Verlauf}  />
               <Route path='/quiz' component={Quiz}  />
               <Route path='/themeninhalt' component={Themeninhalt} />
+              <Route path='/ergebnis' component={Ergebnis}/>
             </Switch>
           </div>
         </BrowserRouter>
