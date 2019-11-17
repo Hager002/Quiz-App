@@ -15,7 +15,9 @@
 
     .options-container {
         display: inline-block;
+        margin-left: 25%;
         width: 50%;
+        margin-right: 25%;
         padding-bottom: 1rem;
     }
 
@@ -29,6 +31,7 @@
         transition: 0.3s linear all;
         text-align: center;
         width: 95%;
+        overflow: hidden;
     }
     .option:hover {
         background-color: darken(rgba(39, 42, 44, 0.199), 20%);
@@ -41,6 +44,7 @@
         box-sizing: border-box;
         border-radius: 100px;
         background: #dfdfdf;
+        overflow: hidden;
         }    
     }
 

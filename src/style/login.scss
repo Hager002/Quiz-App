@@ -1,0 +1,29 @@
+.App-login, .App-registrieren {
+    border: 3px solid rgba(0, 0, 0, 0.137); 
+    padding: 1rem; 
+    max-width: 40%; 
+    margin: 2rem auto; 
+    overflow: hidden;
+  
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  
+    button {
+      width: 40%;
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 1rem; 
+      overflow: hidden;
+    }
+  
+    hr {
+      width: 70%;
+      size: 5;
+      margin-top: 1.5rem;
+      margin-bottom: 0.7rem;
+      border-top: 2px solid gray; 
+      }
+  
+  }

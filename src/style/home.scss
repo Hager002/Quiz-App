@@ -1,0 +1,25 @@
+  .Thema, .Schwierigkeit {
+    border: 3px solid rgba(0, 0, 0, 0.137); 
+    max-width: 50%; 
+    margin: 2rem auto;
+    padding: 1rem; 
+    overflow: hidden;
+  }
+  
+  .StartQuiz {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  
+  .ButtonInstruction {
+    width: 36%;
+    margin-left: 32%;
+    margin-right: 32%;
+    margin-bottom: 1rem; 
+  }
+  
+  .logout {
+    margin-left: 92%;
+    margin-top: 1rem;
+  }

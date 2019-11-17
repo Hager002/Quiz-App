@@ -26,7 +26,7 @@ export class Home extends Component {
                 <button className="logout">Logout</button>
                 </header>
 
-                <div id="game">
+                <div id="gameboard">
 
                     <AppThema />
                     <AppSchwierigkeitsgrad />

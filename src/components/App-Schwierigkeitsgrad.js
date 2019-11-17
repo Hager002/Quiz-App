@@ -15,7 +15,7 @@ class AppSchwierigkeitsgrad extends Component {
     render() {
         return (
             <section className="Schwierigkeit">
-                <h1> Die Schwierigkeitsstufe </h1>
+                <h3> Die Schwierigkeitsstufe </h3>
                 <p>Bitte suchen sie sich eine Schwierigkeitsstufe aus.</p>
                 
                 <input type="radio" name="radioS"

@@ -18,7 +18,7 @@ class AppThema extends Component {
 
   render() {
     return (
-      <section className="Fach">
+      <section className="Thema">
         <h3> Das Thema </h3>
 
         <div className="radio">

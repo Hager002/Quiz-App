@@ -42,7 +42,9 @@ export class Login extends Component {
                                 Anmelden </button>
                         </div>
 
-                        <Button className="reg"
+                        <hr></hr>
+
+                        <Button className="button-reg"
                             onClick={() => { this.props.history.replace('/registrieren') }}>
                             Neues Konto erstellen 
                         </Button>
