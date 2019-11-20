@@ -8,15 +8,15 @@ class Navigation extends Component {
         return (
 
             <div>
-                <Navbar variant="tabs" defaultActiveKey="/home" href="/home">
+                <Navbar className="nav123" variant="tabs" href="/home">
 
-                    <Nav.Item>
-                        <Nav.Link eventKey="/home" href="/home">
+                    <Nav.Item >
+                        <Nav.Link className="nav1" href="/home">
                             Home</Nav.Link>
                     </Nav.Item>
 
-                    <Nav.Item>
-                        <Nav.Link eventKey="/verlauf" href="/verlauf">
+                    <Nav.Item > 
+                        <Nav.Link className="nav2" href="/verlauf">
                             Verlauf</Nav.Link>
                     </Nav.Item>
                     

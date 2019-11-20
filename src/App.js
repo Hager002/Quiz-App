@@ -2,14 +2,16 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import './style/style.scss';
 
-import { Login } from './components/Login';
-import { Registrieren } from './components/Registrieren';
-import { Home } from './components/Home';
+import { Login } from './components/Benutzerformular/Login';
+import { Registrieren } from './components/Benutzerformular/Registrieren';
+import { Home } from './components/Home/Home';
 import { Verlauf } from './components/Verlauf';
-import { Quiz } from './components/Quiz';
+import { Quiz } from './components/Gameboard/Quiz';
 import { Ergebnis } from './components/Ergebnis';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import  Themeninhalt from './components/Themeninhalte';
+import Test from './components/Benutzerformular/test';
+import Frage from './components/Gameboard/Frage'
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
         <h2> Physik 5 </h2>
       </header>
 
-      <body className="App-body container">
+      <div className="App-body container">
 
         <BrowserRouter>
           <div className="container">
@@ -33,11 +35,13 @@ function App() {
               <Route path='/quiz' component={Quiz}  />
               <Route path='/themeninhalt' component={Themeninhalt} />
               <Route path='/ergebnis' component={Ergebnis}/>
+              <Route path='/test' component={Test}/>
+              <Route path='/frage' component={Frage}/>
             </Switch>
           </div>
         </BrowserRouter>
 
-      </body>
+      </div>
     </div>
   );
 

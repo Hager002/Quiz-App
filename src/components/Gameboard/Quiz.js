@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import questions from '../api/questions.json';
+import questions from './questions.json';
 
 export class Quiz extends Component {
 
@@ -18,7 +18,6 @@ export class Quiz extends Component {
             currentQuestionIndex: 0,
             correctAnswers: 0,
             wrongAnswers: 0,
-            score: 0
         };
     }
 
@@ -57,7 +56,8 @@ export class Quiz extends Component {
     };
 
     handleOptionClick = (event) => {
-        if (event.target.innerHTML === this.state.answer) {
+        console.log(event.target.innerHTML, this.state.answer); 
+        if (event.target.innerHTML.trim() === this.state.answer.trim()) {
             this.correctAnswer();
         } else {
             this.wrongAnswer();
@@ -65,10 +65,9 @@ export class Quiz extends Component {
     }
 
     correctAnswer = () => {
-        console.log('correct');
+        console.log('Richtig');
         this.setState(({
             correctAnswers: this.state.correctAnswers + 1,
-            score: this.state.score + 1,
             currentQuestionIndex: this.state.currentQuestionIndex + 1,
             numberOfAnsweredQuestions: this.state.numberOfAnsweredQuestions + 1
         }),
@@ -84,7 +83,7 @@ export class Quiz extends Component {
     }
 
     wrongAnswer = () => {
-        console.log('Wrong');
+        console.log('Falsch');
         this.setState(({
             wrongAnswers: this.state.wrongAnswers + 1,
             currentQuestionIndex: this.state.currentQuestionIndex + 1,

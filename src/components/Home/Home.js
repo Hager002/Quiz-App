@@ -4,7 +4,7 @@ import AppSchwierigkeitsgrad from './App-Schwierigkeitsgrad';
 import { AppModal } from './App-Modal';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import { Helmet } from 'react-helmet';
-import Navigation from '../App-Navigation';
+import Navigation from '../../App-Navigation';
 
 
 export class Home extends Component {
