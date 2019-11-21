@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import axios from '../axios';
 
-class Frage extends Component {
+class OptionB extends Component {
 
     state = {
         quizes: [],
-        frage: '',
+        optionB: '',
         aktuelleFrage: {},
         aktuelleFrageIndex: 0
     }
 
     componentDidMount() {
-        const { frage, aktuelleFrage } = this.state;
+        const { optionB, aktuelleFrage } = this.state;
 
         axios.get('/fragenundantworten')
             .then(response => {
@@ -25,17 +25,17 @@ class Frage extends Component {
             })
 
         this.displayAllQuestions(
-            frage, aktuelleFrage
+            optionB, aktuelleFrage
         );
     }
 
     displayAllQuestions = (
-        frage = this.state.frage, aktuelleFrage) => {
+        optionB = this.optionB, aktuelleFrage) => {
         let aktuelleFrageIndex = this.state;
 
-        if (this.state.frage) {
-            frage = this.state.frage;
-            aktuelleFrage = frage[aktuelleFrageIndex];
+        if (this.state.optionB) {
+            optionB = this.state.optionB;
+            aktuelleFrage = optionB[aktuelleFrageIndex];
 
             this.setState({
                 aktuelleFrage: aktuelleFrage
@@ -44,10 +44,10 @@ class Frage extends Component {
     }
 
     dataSendHandler = (event) => {
-        const frage = document.getElementById('frage').value;
+        const optionA = document.getElementById('frage').value;
 
         axios.post('/fragenundantworten', {
-            frage: frage,
+            optionA: optionA,
         })
             .then(response => {
                 console.log(response.data);
@@ -60,17 +60,17 @@ class Frage extends Component {
     render() {
         const quizes = this.state.quizes.map(quiz => (
             <div key={quiz._id}>
-                <span>{quiz.frage}</span>
+                <span>{quiz.optionB}</span>
             </div>
         ));
         const { aktuelleFrageIndex } = this.state;
 
         return (
             <div>
-                <h2>{quizes[aktuelleFrageIndex]}</h2>
+                <p className="option"> {quizes[aktuelleFrageIndex]} </p>
             </div>
         )
     }
 }
 
-export default Frage;
+export default OptionB;

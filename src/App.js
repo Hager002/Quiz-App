@@ -11,7 +11,9 @@ import { Ergebnis } from './components/Ergebnis';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import  Themeninhalt from './components/Themeninhalte';
 import Test from './components/Benutzerformular/test';
-import Frage from './components/Gameboard/Frage'
+import Frage from './components/Gameboard/Frage';
+import OptionA from './components/Gameboard/OptionA';
+import {Gameboard} from './components/Gameboard/Gameboard.js';
 
 function App() {
 
@@ -37,6 +39,8 @@ function App() {
               <Route path='/ergebnis' component={Ergebnis}/>
               <Route path='/test' component={Test}/>
               <Route path='/frage' component={Frage}/>
+              <Route path='/optionA' component={OptionA}/>
+              <Route path='/gameboard' component={Gameboard}/>
             </Switch>
           </div>
         </BrowserRouter>
