@@ -1,9 +1,8 @@
-@import './gameboard.scss'; 
-@import './login.scss'; 
-@import './verlauf.scss';
-@import './home.scss'; 
-@import './ergebnis.scss';
-
+@import "../components/Gameboard/gameboard.scss";
+@import "../components/Benutzerformular/login.scss";
+@import "../components/Verlauf/verlauf.scss";
+@import "../components/Home/home.scss";
+@import "../components/Gameboard//Ergebnis/ergebnis.scss";
 
 .App {
   max-width: 90%;
@@ -12,9 +11,10 @@
 }
 
 .App-header {
-  height: 11rem; 
-  
-  h1, h2 {
+  height: 11rem;
+
+  h1,
+  h2 {
     text-align: center;
   }
 }
@@ -28,14 +28,15 @@
   max-width: 60rem;
   border-right: 2px solid rgba(0, 0, 0, 0.137);
   border-left: 2px solid rgba(0, 0, 0, 0.137);
-  margin: 0rem; 
+  margin: 0rem;
   padding: 1rem;
 }
 
-.nav123{
- background-color: gray;
+.nav123 {
+  background-color: gray;
 }
 
-.nav1, .nav2 {
-  color: white; 
+.nav1,
+.nav2 {
+  color: white;
 }
