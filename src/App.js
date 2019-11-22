@@ -8,9 +8,7 @@ import { Home } from "./components/Home/Home";
 import { Verlauf } from "./components/Verlauf/Verlauf";
 import { Ergebnis } from "./components/Gameboard/Ergebnis/Ergebnis";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Themeninhalt from "./components/Themeninhalte";
 import { Gameboard } from "./components/Gameboard/Gameboard.js";
-import FragenNeu from "./components/Gameboard/FragenNeu/FragenNeu";
 
 function App() {
   return (
@@ -27,10 +25,9 @@ function App() {
               <Route path="/" component={Login} exact />
               <Route path="/registrieren" component={Registrieren} />
               <Route path="/home" component={Home} />
-              <Route path="/verlauf" component={Verlauf} />
-              <Route path="/themeninhalt" component={Themeninhalt} />
-              <Route path="/ergebnis" component={Ergebnis} />
               <Route path="/gameboard" component={Gameboard} />
+              <Route path="/verlauf" component={Verlauf} />
+              <Route path="/ergebnis" component={Ergebnis} />
             </Switch>
           </div>
         </BrowserRouter>

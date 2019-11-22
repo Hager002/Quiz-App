@@ -15,6 +15,7 @@ const Fragen = props => {
         .get("/fragenundantworten")
         .then(response => {
           setQuestion(response.data);
+          console.log(response.data);
           setLoad(false);
         })
         .catch(error => {
@@ -30,6 +31,10 @@ const Fragen = props => {
     if (currentQuestion < question.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     }
+    if (currentQuestion === question.length - 1) {
+      console.log("fragen fertig ");
+      window.location.href = "/ergebnis";
+    }
   };
 
   const backButtonHandler = () => {
@@ -40,7 +45,7 @@ const Fragen = props => {
 
   const quitButtonHandler = () => {
     if (window.confirm("Quit?")) {
-      this.props.history.push("/home");
+      window.location.href = "/ergebnis";
     } else {
     }
   };
