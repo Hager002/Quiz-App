@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { Button } from "react-bootstrap";
+import { Button, Card, CardDeck } from "react-bootstrap";
 import axios from "../axios";
 
 export class Login extends Component {
@@ -16,9 +16,6 @@ export class Login extends Component {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-
-    // Match multiple fields: stimmen sich beides, email und passwort, mit denen eines Users aus der datenbank überien
-    // const query = '?q={"email": "' + email + '", "password": "' + password + '"}';
 
     axios
       .get("/login")
@@ -65,64 +62,95 @@ export class Login extends Component {
     return (
       <Fragment>
         <Helmet>
-          <title>Quiz App - Login</title>
+          <title>Quiz - Anmelden</title>
         </Helmet>
 
-        <section className="App-login container">
-          <form className="login" key={_id} onSubmit={this.handleSubmit} method="GET" action="Home.js">
-            <h1>Login</h1>
-
-            <div className="input-field">
-              <label htmlFor="email">
-                Email Adresse: <span>{email}</span>
-              </label>
-              <input
-                name="email"
-                type="email"
-                id="email"
-                placeholder="xyz@hotmail.com"
-                onClick={this.handleEmailChange}
-              />
+        <div className="AAA_login">
+          <CardDeck>
+            <div className="cardInfo">
+              <Card>
+                <Card.Body className="cardInfo__body">
+                  <Card.Title className="cardInfo__title">BIO Quiz</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Text className="cardInfo__text">
+                    Willkommen liebe Schüler und Schülerinnen. Auf dieser Webapplikation könnte ihr euch auf
+                    einem Spaßiegen weg für eure Biologie-Klausuren vorbereiten. Ihr könnt euch zu den
+                    verschiedensten Topics den Stoff durchlesen und zu diesen ein Quiz spielen um euer Wissen
+                    zu überprüfen und zu festigen.{" "}
+                  </Card.Text>
+                  <Card.Link href="#"></Card.Link>
+                </Card.Body>
+              </Card>
             </div>
 
-            <div className="input-field">
-              <label htmlFor="password">
-                Passwort: <span>{password}</span>
-              </label>
-              <input
-                name="password"
-                type="password"
-                id="password"
-                placeholder="*****"
-                onClick={this.handlePasswordChange}
-              />
+            <div className="cardLogin">
+              <Card>
+                <Card.Body className="cardLogin__body">
+                  <Card.Title className="cardLogin__title">Anmelden</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                  <Card.Text>
+                    <section className="App-login container">
+                      <form
+                        className="login"
+                        key={_id}
+                        onSubmit={this.handleSubmit}
+                        method="GET"
+                        action="Home.js"
+                      >
+                        <div className="input-field__email">
+                          <label htmlFor="email" className="email_label">
+                            Email Adresse: {/* <span>{email}</span> */}
+                          </label>
+                          <input
+                            className="email_input"
+                            name="email"
+                            type="email"
+                            id="email"
+                            placeholder="xyz@hotmail.com"
+                            onClick={this.handleEmailChange}
+                          />
+                        </div>
+
+                        <div className="input-field__password">
+                          <label htmlFor="password" className="password_label">
+                            Passwort: {/* <span>{password}</span> */}
+                          </label>
+                          <input
+                            className="password_input"
+                            name="password"
+                            type="password"
+                            id="password"
+                            placeholder="*****"
+                            onClick={this.handlePasswordChange}
+                          />
+                        </div>
+
+                        <div className="input-field">
+                          <button
+                            className="cardLogin__login"
+                            variant="primary"
+                            name="submit"
+                            type="submit"
+                            id="buttonSubmit"
+                            onClick={this.handleSubmit}
+                          >
+                            {" "}
+                            Anmelden{" "}
+                          </button>
+                        </div>
+                      </form>
+                      <hr></hr>
+                    </section>
+                  </Card.Text>
+                  <Card.Link href="/registrieren" className="cardLogin__reg">
+                    {" "}
+                    Neues Konto erstellen
+                  </Card.Link>{" "}
+                </Card.Body>
+              </Card>
             </div>
-
-            <div className="input-field">
-              <button
-                variant="primary"
-                name="submit"
-                type="submit"
-                id="buttonSubmit"
-                onClick={this.handleSubmit}
-              >
-                {" "}
-                Anmelden{" "}
-              </button>
-            </div>
-
-            <hr></hr>
-          </form>
-
-          <Button
-            className="button-reg"
-            onClick={() => {
-              this.props.history.replace("/registrieren");
-            }}
-          >
-            Neues Konto erstellen
-          </Button>
-        </section>
+          </CardDeck>
+        </div>
       </Fragment>
     );
   }

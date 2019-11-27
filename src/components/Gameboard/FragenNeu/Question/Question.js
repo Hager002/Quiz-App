@@ -5,15 +5,22 @@ class Question extends Component {
     return (
       <div>
         <div className="question">
-          <p>{this.props.frage}</p>
+          <p>{this.props.question}</p>
         </div>
-        {/* <p>{this.props.antwort}</p> */}
 
         <div className="options-container">
-          <p className="option"> {this.props.optionA} </p>
-          <p className="option"> {this.props.optionB} </p>
-          <p className="option"> {this.props.optionD} </p>
-          <p className="option"> {this.props.optionC} </p>
+          <p onClick={this.handleOptionClick} className="option">
+            {this.props.answers}
+          </p>
+          <p onClick={this.handleOptionClick} className="option">
+            {this.props.answers}
+          </p>
+          <p onClick={this.handleOptionClick} className="option">
+            {this.props.answers}
+          </p>
+          <p onClick={this.handleOptionClick} className="option">
+            {this.props.answers}
+          </p>
         </div>
       </div>
     );

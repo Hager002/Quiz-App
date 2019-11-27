@@ -2,17 +2,24 @@
 @import "../components/Benutzerformular/login.scss";
 @import "../components/Verlauf/verlauf.scss";
 @import "../components/Home/home.scss";
-@import "../components/Gameboard//Ergebnis/ergebnis.scss";
+@import "../components/Gameboard/Ergebnis/ergebnis.scss";
+@import "../components/App/Navigation.scss";
+@import "../components/Benutzerformular/reg.scss";
+$green: rgb(20, 43, 19);
 
-.App {
-  max-width: 90%;
-  margin: auto;
-  padding: 1rem;
+body {
+  background-image: url(../img/bild1.jpg);
+  background-size: cover;
 }
 
 .App-header {
-  height: 11rem;
-
+  height: 10rem;
+  width: 100%;
+  margin-top: -1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background-color: $green;
+  color: greenyellow;
   h1,
   h2 {
     text-align: center;
@@ -25,18 +32,10 @@
 }
 
 .App-body {
-  max-width: 60rem;
+  margin-top: 0rem;
+  width: 60rem;
   border-right: 2px solid rgba(0, 0, 0, 0.137);
   border-left: 2px solid rgba(0, 0, 0, 0.137);
-  margin: 0rem;
   padding: 1rem;
-}
-
-.nav123 {
-  background-color: gray;
-}
-
-.nav1,
-.nav2 {
-  color: white;
+  background-color: $green;
 }

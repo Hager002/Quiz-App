@@ -6,13 +6,17 @@ import Question from "../Fragen/Question/Question";
 
 const Fragen = props => {
   const [question, setQuestion] = useState([]);
+  const [answers, setAnswers] = useState([]);
+  const [topic, setTopic] = useState([]);
+  const [iscorrect, setIsCorrect] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [load, setLoad] = useState(false);
+  const [correctAnswer] = useState(0);
 
   useEffect(() => {
     const fetch = () => {
       axios
-        .get("/fragenundantworten")
+        .get("/questions")
         .then(response => {
           setQuestion(response.data);
           console.log(response.data);
@@ -50,6 +54,18 @@ const Fragen = props => {
     }
   };
 
+  // true or false?
+  const handleOptionClick = event => {
+    console.log("JA");
+    if (event.target.answers.iscorrect === true) {
+      correctAnswer = correctAnswer + 1;
+      console.log("true", correctAnswer);
+    } else {
+      console.log("false", correctAnswer);
+      correctAnswer = correctAnswer;
+    }
+  };
+
   const setCorrectJSX = () => {
     if (question.length === 0) {
       if (load) {
@@ -60,12 +76,12 @@ const Fragen = props => {
     } else {
       return (
         <Question
-          frage={question[currentQuestion].frage}
-          antwort={question[currentQuestion].antwort}
-          optionA={question[currentQuestion].optionA}
-          optionB={question[currentQuestion].optionB}
-          optionC={question[currentQuestion].optionC}
-          optionD={question[currentQuestion].optionD}
+          frage={question[currentQuestion].question}
+          optionA={question[currentQuestion].answers[0].text}
+          optionB={question[currentQuestion].answers[1].text}
+          optionC={question[currentQuestion].answers[2].text}
+          optionD={question[currentQuestion].answers[3].text}
+          //optionClick={handleOptionClick}
         />
       );
     }
@@ -85,7 +101,7 @@ const Fragen = props => {
           Vor
         </button>
         <button className="quit" onClick={quitButtonHandler}>
-          Quit
+          Abbrechen
         </button>
       </div>
     </div>

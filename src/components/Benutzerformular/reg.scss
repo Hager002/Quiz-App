@@ -1,0 +1,91 @@
+.App-registrieren {
+  border: 3px solid rgba(0, 0, 0, 0.137);
+  padding: 2rem;
+  margin: 2rem auto;
+  overflow: hidden;
+  color: white;
+
+  .reg_h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2rem;
+    overflow: hidden;
+    line-height: 3rem;
+  }
+
+  hr {
+    width: 70%;
+    size: 5;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-top: 2px solid gray;
+  }
+}
+
+.reg_form_fields {
+  margin-left: 28.5%;
+}
+.App-registrieren {
+  display: grid;
+  grid-template-columns: auto;
+
+  .regName__label {
+    grid-column: 1;
+    grid-row: 1;
+    width: 60%;
+    font-weight: normal;
+  }
+  .regName__input {
+    grid-column: 1;
+    grid-row: 2;
+    width: 60%;
+    text-align: center;
+  }
+  .regGb__label {
+    grid-column: 1;
+    grid-row: 1;
+    width: 60%;
+    font-weight: normal;
+  }
+  .regGB__input {
+    grid-column: 1;
+    grid-row: 2;
+    width: 60%;
+    text-align: center;
+  }
+  .regEmail__label {
+    grid-column: 1;
+    grid-row: 1;
+    width: 60%;
+    font-weight: normal;
+  }
+  .regEmail__input {
+    grid-column: 1;
+    grid-row: 2;
+    width: 60%;
+    text-align: center;
+  }
+
+  .regPw__label {
+    grid-column: 1;
+    grid-row: 1;
+    width: 60%;
+    font-weight: normal;
+  }
+  .regPw__input {
+    grid-column: 1;
+    grid-row: 2;
+    width: 60%;
+    text-align: center;
+  }
+}
+
+.regSubmitButton {
+  font-weight: bold;
+}

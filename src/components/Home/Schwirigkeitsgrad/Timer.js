@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AppSchwierigkeitsgrad from "./Schwierigkeitsgrad";
 
 class Timer extends Component {
   state = {
@@ -37,7 +38,7 @@ class Timer extends Component {
     const { min, sec } = this.state;
 
     return (
-      <div>
+      <div className="timer">
         <p>
           Übrige Zeit: {min}:{sec}
         </p>

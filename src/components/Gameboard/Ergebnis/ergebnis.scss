@@ -1,20 +1,31 @@
+.AAA_ergebnis {
+  background-color: $green;
+  height: 40rem;
+  color: $green;
+  font-size: medium;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding-top: 3rem;
+  vertical-align: middle;
+}
 
+.richtig,
+.falsch,
+.fragenAnzahl,
+.zeit {
+  width: 45%;
+  text-align: center;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 100px;
 
-.richtig, .falsch, .fragenAnzahl, .zeit {
-    width: 45%;
-    text-align: center;
-    margin: 0.5rem;
-    padding: 1rem;  
-    border-radius: 100px;
-
-    margin-left: auto;
-    margin-right: auto;
-    background: rgb(230, 229, 229);
-    vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  background: yellowgreen;
+  vertical-align: middle;
 }
 
 .backButton {
-    text-align: center;
-    margin-top: 2rem;
+  text-align: center;
+  margin-top: 2rem;
 }
-

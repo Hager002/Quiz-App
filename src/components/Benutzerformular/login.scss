@@ -1,29 +1,96 @@
-.App-login, .App-registrieren {
-    border: 3px solid rgba(0, 0, 0, 0.137); 
-    padding: 1rem; 
-    max-width: 40%; 
-    margin: 2rem auto; 
-    overflow: hidden;
-  
-    h1 {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-  
-    button {
-      width: 40%;
-      margin-left: 30%;
-      margin-right: 30%;
-      margin-top: 1rem; 
-      overflow: hidden;
-    }
-  
-    hr {
-      width: 70%;
-      size: 5;
-      margin-top: 1.5rem;
-      margin-bottom: 0.7rem;
-      border-top: 2px solid gray; 
-      }
-  
+.AAA_login {
+  margin-top: 2rem;
+}
+
+.cardInfo,
+.cardLogin {
+  width: 25rem;
+  height: 30rem;
+  padding-top: 2rem;
+}
+
+.cardInfo {
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+.cardInfo__body,
+.cardLogin__body {
+  box-shadow: 1rem 1rem 1rem rgb(54, 88, 2);
+  height: 24rem;
+}
+
+.cardInfo__title,
+.cardLogin__title {
+  size: 20rem;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+}
+
+.cardLogin__reg,
+.cardLogin__login {
+  color: black;
+  background-color: rgb(233, 233, 233);
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  border: 1.8px solid rgba(0, 0, 0, 0.137);
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+
+  &:hover {
+    background-color: darken(rgb(175, 175, 175), 20%);
   }
+}
+
+.cardLogin__login {
+  margin-left: 6.2rem;
+  margin-right: 6.2rem;
+  margin-top: 0.5rem;
+}
+.cardLogin__reg {
+  margin-left: 3.5rem;
+  margin-right: 3.5rem;
+  font-weight: normal;
+}
+
+.login,
+.cardInfo__text {
+  margin-top: 1.5rem;
+  color: black;
+  font-size: large;
+  font-weight: normal;
+}
+
+.App-login {
+  display: grid;
+  grid-template-columns: auto;
+
+  .email_label {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    font-weight: normal;
+  }
+  .email_input {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    text-align: center;
+  }
+
+  .password_label {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    font-weight: normal;
+  }
+  .password_input {
+    grid-column: 1;
+    grid-row: 4;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
