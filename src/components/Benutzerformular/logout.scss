@@ -1,0 +1,15 @@
+$green: rgb(20, 43, 19);
+
+.logout {
+  color: yellowgreen;
+  background-color: $green;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+
+  &:hover {
+    filter: brightness(150%);
+  }
+}

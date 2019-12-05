@@ -6,7 +6,7 @@ import Login from "./components/Benutzerformular/Login";
 import { Registrieren } from "./components/Benutzerformular/Registrieren";
 import Home from "./components/Home/Home";
 import { Verlauf } from "./components/Verlauf/Verlauf";
-import { Ergebnis } from "./components/Gameboard/Ergebnis/Ergebnis";
+import Ergebnis from "./components/Gameboard/FragenNeu/Ergebnis/Ergebnis";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Themeninhalt, { Themeninhalte } from "./components/TopicInhalte/Themeninhalte";
 import { Gameboard } from "./components/Gameboard/Gameboard.js";

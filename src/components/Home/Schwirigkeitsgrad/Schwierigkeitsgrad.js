@@ -11,7 +11,7 @@ export default function AppSchwierigkeitsgrad({ onSchwierigkeitsChange }) {
         name="schwierigkeit"
         id="leicht"
         onChange={e => onSchwierigkeitsChange(e.target.id)}
-      />{" "}
+      />
       leicht <br />
       <input
         type="radio"

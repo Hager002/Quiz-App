@@ -15,7 +15,6 @@ export class Verlauf extends Component {
             <div className="App-navi">
               <Navigation />
             </div>
-            <button className="logout">Logout</button>
           </header>
 
           <div>

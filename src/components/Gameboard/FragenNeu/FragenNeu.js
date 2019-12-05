@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
-import Question from "../Fragen/Question/Question";
-import QuizNav from "../QuizNav/QuizNav";
+import Question from "../FragenNeu/Question/Question";
+import QuizNav from "./QuizNav/QuizNav";
+import { func } from "prop-types";
 
-export default function Fragen({ topic, schwierigkeit }) {
+export default function Fragen({
+  topic,
+  schwierigkeit,
+  backButtonHandler,
+  forwardButtonHandler,
+  quitButtonHandler
+}) {
   const [question, setQuestion] = useState([]);
   const [iscorrect, setIsCorrect] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -72,7 +79,7 @@ export default function Fragen({ topic, schwierigkeit }) {
   //   );
   // };
 
-  const setCorrectJSX = () => {
+  function setCorrectJSX() {
     if (question.length === 0) {
       if (load) {
         return <p> Loading ...</p>;
@@ -92,36 +99,29 @@ export default function Fragen({ topic, schwierigkeit }) {
         </div>
       );
     }
-  };
+  }
 
   let frageShow = null;
   frageShow = setCorrectJSX();
 
-  /* const setQuizNav = () => {
+  function setQuizNav() {
     return (
       <div>
-        <QuizNav backButtonHandler forwardButtonHandler quitButtonHandler />
+        <QuizNav
+          backButtonHandler={backButtonHandler}
+          forwardButtonHandler={forwardButtonHandler}
+          quitButtonHandler={quitButtonHandler}
+        />
       </div>
     );
-  };
+  }
   let navShow = null;
-  navShow = setQuizNav(); */
+  navShow = setQuizNav();
 
   return (
     <div>
       {frageShow}
-      {/* {navShow} */}
-      <div className="button-container">
-        <button className="previous" onClick={backButtonHandler}>
-          Zurück
-        </button>
-        <button className="next" onClick={forwardButtonHandler}>
-          Vor
-        </button>
-        <button className="quit" onClick={quitButtonHandler}>
-          Abbrechen
-        </button>
-      </div>
+      {navShow}
     </div>
   );
 }

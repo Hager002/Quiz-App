@@ -1,36 +1,16 @@
 import React, { Component } from "react";
 
 class Question extends Component {
-  constructor(props) {
-    super();
-  }
-
-  handleOptionClick(e) {
-    e.target.value;
-    console.log("click");
-  }
-
   render() {
     return (
       <div>
-        <div className="question">
-          <p>{this.props.question}</p>
-          <p> {this.props.wahr}</p>
-        </div>
+        <h2>{this.props.frage}</h2>
 
         <div className="options-container">
-          <p onClick={this.handleOptionClick} className="option">
-            {this.props.answers}
-          </p>
-          <p onClick={this.handleOptionClick} className="option">
-            {this.props.answers}
-          </p>
-          <p onClick={this.handleOptionClick} className="option">
-            {this.props.answers}
-          </p>
-          <p onClick={this.handleOptionClick} className="option">
-            {this.props.answers}
-          </p>
+          <p className="option"> {this.props.optionA}</p>
+          <p className="option"> {this.props.optionB}</p>
+          <p className="option"> {this.props.optionC}</p>
+          <p className="option"> {this.props.optionD}</p>
         </div>
       </div>
     );

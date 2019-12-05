@@ -25,13 +25,12 @@ export default function Home() {
           <div className="App-navi">
             <Navigation />
           </div>
-          <Logout />
         </header>
 
         {quiz ? (
           <Gameboard topic={topic} schwierigkeit={schwierigkeit} reset={() => setQuiz(false)} />
         ) : (
-          <div id="gameboard">
+          <div id="home">
             <Thema onThemaChange={setTopic} />
             <Schwierigkeitsgrad onSchwierigkeitsChange={setSchwierigkeit} />
             <button className="StartQuiz" onClick={startQuiz}>
