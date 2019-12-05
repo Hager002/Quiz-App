@@ -1,47 +1,45 @@
-import React, { Component, Fragment } from "react";
-import AppThema from "./Thema/Thema";
-import AppSchwierigkeitsgrad from "./Schwirigkeitsgrad/Schwierigkeitsgrad";
-import { Button } from "react-bootstrap";
+import React, { useState, Fragment } from "react";
+import Thema from "./Thema/Thema";
+import Schwierigkeitsgrad from "./Schwirigkeitsgrad/Schwierigkeitsgrad";
 import { Helmet } from "react-helmet";
-import Navigation from "../App/App-Navigation";
+import Navigation from "../Navigation/Navigation";
+import Logout from "../Benutzerformular/Logout";
+import Gameboard from "../Gameboard/Gameboard";
 
-export class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { deps: [], addModalShow: false };
-  }
+export default function Home() {
+  const [topic, setTopic] = useState();
+  const [schwierigkeit, setSchwierigkeit] = useState();
+  const [gameboard, setGameboard] = useState();
+  const [quiz, setQuiz] = useState();
 
-  render() {
-    let addModalclose = () => this.setState({ addModalShow: false });
+  const isNotEmpty = variable => variable;
+  const startQuiz = () => setQuiz(isNotEmpty(topic) && isNotEmpty(schwierigkeit));
 
-    return (
-      <Fragment>
-        <Helmet>
-          <title>Quiz App - Game</title>{" "}
-        </Helmet>
-        <div className="AAA_home">
-          <header>
-            <div className="App-navi">
-              {" "}
-              <Navigation />
-            </div>
-            <button className="logout">Logout</button>
-          </header>
-
-          <div id="gameboard">
-            <AppThema />
-            <AppSchwierigkeitsgrad />
-            <Button
-              className="StartQuiz"
-              onClick={() => {
-                this.props.history.replace("/gameboard");
-              }}
-            >
-              Start
-            </Button>
+  return (
+    <Fragment>
+      <Helmet>
+        <title>Quiz App - Game</title>
+      </Helmet>
+      <div className="AAA_home">
+        <header>
+          <div className="App-navi">
+            <Navigation />
           </div>
-        </div>
-      </Fragment>
-    );
-  }
+          <Logout />
+        </header>
+
+        {quiz ? (
+          <Gameboard topic={topic} schwierigkeit={schwierigkeit} reset={() => setQuiz(false)} />
+        ) : (
+          <div id="gameboard">
+            <Thema onThemaChange={setTopic} />
+            <Schwierigkeitsgrad onSchwierigkeitsChange={setSchwierigkeit} />
+            <button className="StartQuiz" onClick={startQuiz}>
+              Start
+            </button>
+          </div>
+        )}
+      </div>
+    </Fragment>
+  );
 }

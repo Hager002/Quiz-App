@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import Question from "../Fragen/Question/Question";
+import QuizNav from "../QuizNav/QuizNav";
 
-// Fragen : Bifi-Aufgabenpool
-
-const Fragen = props => {
+export default function Fragen({ topic, schwierigkeit }) {
   const [question, setQuestion] = useState([]);
-  const [answers, setAnswers] = useState([]);
-  const [topic, setTopic] = useState([]);
   const [iscorrect, setIsCorrect] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [load, setLoad] = useState(false);
-  const [correctAnswer] = useState(0);
+  const [correctAnswer, setCorrectAnswer] = useState(0);
+  const [wrongAnswer, setWrongAnswer] = useState(0);
 
   useEffect(() => {
+    console.log(topic, schwierigkeit);
     const fetch = () => {
       axios
-        .get("/questions")
+        .get("/" + topic)
         .then(response => {
           setQuestion(response.data);
           console.log(response.data);
@@ -29,9 +28,9 @@ const Fragen = props => {
     };
     setLoad(true);
     fetch();
-  }, []);
+  }, [topic, schwierigkeit]);
 
-  const forwardButtonHandler = () => {
+  function forwardButtonHandler() {
     if (currentQuestion < question.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     }
@@ -39,32 +38,39 @@ const Fragen = props => {
       console.log("fragen fertig ");
       window.location.href = "/ergebnis";
     }
-  };
+  }
 
-  const backButtonHandler = () => {
+  function backButtonHandler() {
     if (currentQuestion !== 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
-  };
+  }
 
-  const quitButtonHandler = () => {
+  function quitButtonHandler() {
     if (window.confirm("Quit?")) {
       window.location.href = "/ergebnis";
     } else {
     }
-  };
+  }
 
-  // true or false?
-  const handleOptionClick = event => {
-    console.log("JA");
-    if (event.target.answers.iscorrect === true) {
-      correctAnswer = correctAnswer + 1;
-      console.log("true", correctAnswer);
-    } else {
-      console.log("false", correctAnswer);
-      correctAnswer = correctAnswer;
-    }
-  };
+  //    handleOptionClick = event => {
+
+  //    if (event.target.question[currentQuestion].answers[0].iscorrect === true) {
+  //    setCorrectAnswer = setCorrectAnswer + 1;
+  //    setWrongAnswer = setWrongAnswer;
+  //    console.log("richtige Antwort");
+  //    } else {
+  //     setWrongAnswer = setWrongAnswer + 1;
+  //     setCorrectAnswer = setCorrectAnswer;
+  //     console.log("falsche Antwort");
+  //    }
+
+  //   return (
+  //     <div>
+  //       <Question handleOptionClick />
+  //     </div>
+  //   );
+  // };
 
   const setCorrectJSX = () => {
     if (question.length === 0) {
@@ -75,14 +81,15 @@ const Fragen = props => {
       }
     } else {
       return (
-        <Question
-          frage={question[currentQuestion].question}
-          optionA={question[currentQuestion].answers[0].text}
-          optionB={question[currentQuestion].answers[1].text}
-          optionC={question[currentQuestion].answers[2].text}
-          optionD={question[currentQuestion].answers[3].text}
-          //optionClick={handleOptionClick}
-        />
+        <div>
+          <Question
+            frage={question[currentQuestion].question}
+            optionA={question[currentQuestion].answers[0].text}
+            optionB={question[currentQuestion].answers[1].text}
+            optionC={question[currentQuestion].answers[2].text}
+            optionD={question[currentQuestion].answers[3].text}
+          />
+        </div>
       );
     }
   };
@@ -90,9 +97,20 @@ const Fragen = props => {
   let frageShow = null;
   frageShow = setCorrectJSX();
 
+  /* const setQuizNav = () => {
+    return (
+      <div>
+        <QuizNav backButtonHandler forwardButtonHandler quitButtonHandler />
+      </div>
+    );
+  };
+  let navShow = null;
+  navShow = setQuizNav(); */
+
   return (
     <div>
       {frageShow}
+      {/* {navShow} */}
       <div className="button-container">
         <button className="previous" onClick={backButtonHandler}>
           Zurück
@@ -106,6 +124,4 @@ const Fragen = props => {
       </div>
     </div>
   );
-};
-
-export default Fragen;
+}

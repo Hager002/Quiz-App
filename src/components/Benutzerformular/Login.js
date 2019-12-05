@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Button, Card, CardDeck } from "react-bootstrap";
 import axios from "../axios";
 
-export class Login extends Component {
+class Login extends Component {
   state = {
     benutzer: [],
     email: "",
@@ -16,6 +16,7 @@ export class Login extends Component {
 
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+    var valid = false;
 
     axios
       .get("/login")
@@ -27,14 +28,18 @@ export class Login extends Component {
 
         for (let i = 0; i < response.data.length; i = i + 1) {
           if (email === response.data[i].email && password === response.data[i].password) {
+            valid = true;
             console.log("You are logged in");
             this.props.history.replace("/home"); // or window.location.href="/home"
+            break;
           }
           if (email !== response.data[i].email || password !== response.data[i].password) {
-            console.log("Sie haben name oder passwort falsch eingegeben");
+            valid = false;
+            //console.log("Sie haben name oder passwort falsch eingegeben");
           }
           if (email !== response.data[i].email && password !== response.data[i].password) {
-            console.log("Sie haben name und passwort falsch eingegeben");
+            valid = false;
+            //console.log("Sie haben name und passwort falsch eingegeben");
           }
         }
       })
@@ -139,13 +144,12 @@ export class Login extends Component {
                           </button>
                         </div>
                       </form>
-                      <hr></hr>
                     </section>
-                  </Card.Text>
+                  </Card.Text>{" "}
+                  <hr className="trennlinie"></hr>
                   <Card.Link href="/registrieren" className="cardLogin__reg">
-                    {" "}
                     Neues Konto erstellen
-                  </Card.Link>{" "}
+                  </Card.Link>
                 </Card.Body>
               </Card>
             </div>
@@ -155,3 +159,5 @@ export class Login extends Component {
     );
   }
 }
+
+export default Login;

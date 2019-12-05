@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import Navigation from "../App/App-Navigation";
+import Navigation from "../Navigation/Navigation";
 
 export class Verlauf extends Component {
   render() {
@@ -26,34 +26,26 @@ export class Verlauf extends Component {
                 Quiz <span>1</span>
               </h3>
               <p>
-                {" "}
-                Schulfach: <span>...</span>
+                Thema: <span>...</span>
               </p>
-              <p>
-                {" "}
-                Schwirigkeitsstufe: <span>...</span>
-              </p>
-              <p>
-                {" "}
-                Frage: <span>Meine Frage?</span>
-              </p>
-              <div>
+              <div className="eineFrage">
                 <p>
-                  {" "}
-                  A: <span>1.Antwortmöglichkeit</span>
+                  <span>1.</span>Frage: <span>Meine Frage</span>
                 </p>
-                <p>
-                  {" "}
-                  B: <span>2.Antwortmöglichkeit</span>
-                </p>
-                <p>
-                  {" "}
-                  C: <span>3.Antwortmöglichkeit</span>
-                </p>
-                <p>
-                  {" "}
-                  D: <span>4.Antwortmöglichkeit</span>
-                </p>
+                <div>
+                  <p>
+                    A: <span>1.Antwortmöglichkeit</span>
+                  </p>
+                  <p>
+                    B: <span>2.Antwortmöglichkeit</span>
+                  </p>
+                  <p>
+                    C: <span>3.Antwortmöglichkeit</span>
+                  </p>
+                  <p>
+                    D: <span>4.Antwortmöglichkeit</span>
+                  </p>
+                </div>
               </div>
             </section>
           </div>

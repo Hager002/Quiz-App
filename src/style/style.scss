@@ -3,7 +3,7 @@
 @import "../components/Verlauf/verlauf.scss";
 @import "../components/Home/home.scss";
 @import "../components/Gameboard/Ergebnis/ergebnis.scss";
-@import "../components/App/Navigation.scss";
+@import "../components/Navigation/Navigation.scss";
 @import "../components/Benutzerformular/reg.scss";
 $green: rgb(20, 43, 19);
 
@@ -29,6 +29,7 @@ body {
 .App-navi {
   width: 100%;
   background-color: rgb(0, 0, 0);
+  font-size: 20px;
 }
 
 .App-body {

@@ -22,18 +22,14 @@ export class Ergebnis extends Component {
           <MDBContainer>
             <MDBRow>
               <MDBCol size="6" sm="5" className="zeit">
-                {" "}
                 <p>
-                  {" "}
                   Benötigte Zeit: <br /> <span>3:30</span> min
                 </p>
               </MDBCol>
             </MDBRow>
             <MDBRow>
               <MDBCol size="6" sm="5" className="fragenAnzahl">
-                {" "}
                 <p>
-                  {" "}
                   Fragen: <br /> <span>5</span>
                 </p>
               </MDBCol>
@@ -41,13 +37,11 @@ export class Ergebnis extends Component {
             <MDBRow>
               <MDBCol size="6" sm="5" className="richtig">
                 <p>
-                  {" "}
                   Richtige Antworten: <br /> <span>4</span>
                 </p>
               </MDBCol>
               <MDBCol size="6" sm="5" className="falsch">
                 <p>
-                  {" "}
                   Falsche Antworten: <br /> <span>1</span>
                 </p>
               </MDBCol>
@@ -55,14 +49,14 @@ export class Ergebnis extends Component {
           </MDBContainer>
 
           <div className="backButton">
-            <Button
+            <button
               className="goBackToHome"
               onClick={() => {
                 this.props.history.replace("/home");
               }}
             >
               Back To Homescreen
-            </Button>
+            </button>
           </div>
         </div>
       </Fragment>

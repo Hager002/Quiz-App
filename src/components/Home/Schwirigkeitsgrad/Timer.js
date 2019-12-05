@@ -27,6 +27,10 @@ class Timer extends Component {
       if (sec === 0 && min === 0) {
         clearInterval(this.myTimeInterval);
       }
+
+      if (sec === 0 && min === 0) {
+        window.location.href = "/ergebnis";
+      }
     }, 1000);
   }
 
