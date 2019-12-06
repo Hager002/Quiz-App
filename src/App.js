@@ -8,7 +8,6 @@ import Home from "./components/Home/Home";
 import { Verlauf } from "./components/Verlauf/Verlauf";
 import Ergebnis from "./components/Gameboard/FragenNeu/Ergebnis/Ergebnis";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Themeninhalt, { Themeninhalte } from "./components/TopicInhalte/Themeninhalte";
 import { Gameboard } from "./components/Gameboard/Gameboard.js";
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
               <Route path="/registrieren" component={Registrieren} />
               <Route path="/home" component={Home} />
               <Route path="/verlauf" component={Verlauf} />
-              <Route path="/inhalte" component={Themeninhalt} />
               <Route path="/ergebnis" component={Ergebnis} />
             </Switch>
           </div>

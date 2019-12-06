@@ -3,13 +3,16 @@ import axios from "../../axios";
 import Question from "../FragenNeu/Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
 import { func } from "prop-types";
+import Ergebnis from "./Ergebnis/Ergebnis";
+import Spinner from "react-spinner-material";
 
 export default function Fragen({
   topic,
   schwierigkeit,
   backButtonHandler,
   forwardButtonHandler,
-  quitButtonHandler
+  quitButtonHandler,
+  handleOptionClick
 }) {
   const [question, setQuestion] = useState([]);
   const [iscorrect, setIsCorrect] = useState([]);
@@ -53,6 +56,9 @@ export default function Fragen({
     }
   }
 
+  function erg() {
+    window.location.href = "/ergebnis";
+  }
   function quitButtonHandler() {
     if (window.confirm("Quit?")) {
       window.location.href = "/ergebnis";
@@ -60,29 +66,42 @@ export default function Fragen({
     }
   }
 
-  //    handleOptionClick = event => {
+  function anzahl() {
+    let anzahl = question.length;
+  }
 
-  //    if (event.target.question[currentQuestion].answers[0].iscorrect === true) {
-  //    setCorrectAnswer = setCorrectAnswer + 1;
-  //    setWrongAnswer = setWrongAnswer;
-  //    console.log("richtige Antwort");
-  //    } else {
+  // function handleOptionClick(event) {
+  //   if (event.target.question[currentQuestion].answers[0].iscorrect === true) {
+  //     setCorrectAnswer = setCorrectAnswer + 1;
+  //     setWrongAnswer = setWrongAnswer;
+  //     console.log("richtige Antwort");
+  //   } else {
   //     setWrongAnswer = setWrongAnswer + 1;
   //     setCorrectAnswer = setCorrectAnswer;
   //     console.log("falsche Antwort");
-  //    }
-
+  //   }
+  // }
+  // function rightWrongAnswer() {
   //   return (
   //     <div>
-  //       <Question handleOptionClick />
+  //       <Question
+  //         istrichtig={setCorrectAnswer}
+  //         istfalsch={setWrongAnswer}
+  //         antwort={question[currentQuestion].question.answers[0].iscorrect}
+  //       />
   //     </div>
   //   );
-  // };
+  // }
+  // rightWrongAnswer = handleOptionClick();
 
   function setCorrectJSX() {
     if (question.length === 0) {
       if (load) {
-        return <p> Loading ...</p>;
+        return (
+          <div className="spinner">
+            <Spinner size={50} spinnerColor={"#333"} spinnerWidth={2} visible={true} />
+          </div>
+        );
       } else {
         return <p> Keine Daten vorhanden ...</p>;
       }

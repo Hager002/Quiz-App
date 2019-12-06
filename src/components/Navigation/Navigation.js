@@ -18,7 +18,11 @@ export default function Navigation({ reset }) {
           </Nav.Link>
         </Nav.Item>
 
-        <Logout />
+        <Nav.Item className="navItem">
+          <Nav.Link>
+            <Logout />
+          </Nav.Link>
+        </Nav.Item>
       </Navbar>
     </div>
   );

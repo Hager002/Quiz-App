@@ -9,7 +9,8 @@ export default function Gameboard({
   reset,
   backButtonHandler,
   forwardButtonHandler,
-  quitButtonHandler
+  quitButtonHandler,
+  handleOptionClick
 }) {
   return (
     <div>
@@ -29,6 +30,7 @@ export default function Gameboard({
               backButtonHandler={backButtonHandler}
               forwardButtonHandler={forwardButtonHandler}
               quitButtonHandler={quitButtonHandler}
+              handleOptionClick={handleOptionClick}
             />
           </div>
         </div>

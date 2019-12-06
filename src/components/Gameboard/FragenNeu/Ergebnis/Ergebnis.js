@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { Helmet } from "react-helmet";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
-export default function Ergebnis() {
+export default function Ergebnis({ anzahl }) {
   return (
     <Fragment>
       <Helmet>
@@ -26,7 +26,7 @@ export default function Ergebnis() {
           <MDBRow>
             <MDBCol size="6" sm="5" className="fragenAnzahl">
               <p>
-                Fragen: <br /> <span>5</span>
+                Fragen: <br /> <span>{anzahl}</span>
               </p>
             </MDBCol>
           </MDBRow>

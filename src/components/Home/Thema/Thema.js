@@ -11,8 +11,8 @@ export default function AppThema({ onThemaChange }) {
 
       <div className="radio">
         <label className="thema">
-          <input type="radio" name="topic" id="topic1" onChange={e => onThemaChange(e.target.id)} />
-          Genetik und Gentechnik
+          <input type="radio" name="topic" id="topic1" onChange={e => onThemaChange(e.target.id)} /> Genetik
+          und Gentechnik
         </label>
       </div>
 
