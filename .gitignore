@@ -1,15 +1,18 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+quiz-js/node_modules
+quiz-react/node_modules
 /.pnp
 .pnp.js
 
 # testing
-/coverage
+quiz-js/coverage
+quiz-react/coverage
 
 # production
-/build
+quiz-js/build
+quiz-react/build
 
 # misc
 .DS_Store

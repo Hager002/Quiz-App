@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../axios";
-import Question from "../FragenNeu/Question/Question";
+import Question from "./Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
 import Spinner from "react-spinner-material";
 
