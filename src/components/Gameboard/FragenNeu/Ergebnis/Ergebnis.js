@@ -1,5 +1,4 @@
-import React, { Component, Fragment } from "react";
-import { Button } from "react-bootstrap";
+import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
@@ -51,7 +50,7 @@ export default function Ergebnis({ anzahl }) {
               window.location.href = "/home";
             }}
           >
-            Back To Homescreen
+            Zurück zur Startseite
           </button>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { Button, Card, CardDeck } from "react-bootstrap";
-import axios from "../axios";
+import axios from "../../axios";
+import {login} from "../../../services/user-service"
 
 class Login extends Component {
   state = {
-    benutzer: [],
     email: "",
     password: ""
   };
@@ -13,50 +13,9 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log(event);
-
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    var valid = false;
-
-    axios
-      .get("/login")
-      .then(response => {
-        this.setState({
-          benutzer: response.data
-        });
-        console.log(response.data);
-
-        for (let i = 0; i < response.data.length; i = i + 1) {
-          if (email === response.data[i].email && password === response.data[i].password) {
-            valid = true;
-            console.log("You are logged in");
-            this.props.history.replace("/home"); // or window.location.href="/home"
-            break;
-          }
-          if (email !== response.data[i].email || password !== response.data[i].password) {
-            valid = false;
-            //console.log("Sie haben name oder passwort falsch eingegeben");
-          }
-          if (email !== response.data[i].email && password !== response.data[i].password) {
-            valid = false;
-            //console.log("Sie haben name und passwort falsch eingegeben");
-          }
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
-  handleEmailChange = event => {
-    this.setState({
-      email: event.target.value
-    });
-  };
-  handlePasswordChange = event => {
-    this.setState({
-      password: event.target.value
-    });
+    login({email, password});
   };
 
   render() {
@@ -78,10 +37,9 @@ class Login extends Component {
                   <Card.Title className="cardInfo__title">BIO Quiz</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text className="cardInfo__text">
-                    Willkommen liebe Schüler und Schülerinnen. Auf dieser Webapplikation könnte ihr euch auf
-                    einem Spaßiegen weg für eure Biologie-Klausuren vorbereiten. Ihr könnt euch zu den
-                    verschiedensten Topics den Stoff durchlesen und zu diesen ein Quiz spielen um euer Wissen
-                    zu überprüfen und zu festigen.{" "}
+                    Willkommen liebe Schüler und Schülerinnen. Auf dieser Webseite könnte ihr euch auf
+                    spaßiegen Weg für eure Biologie-Klausuren vorbereiten. Ihr könnt zu den verschiedensten
+                    Topics ein Quiz spielen um euer Wissen zu überprüfen und zu festigen.{" "}
                   </Card.Text>
                   <Card.Link href="#"></Card.Link>
                 </Card.Body>
@@ -104,7 +62,7 @@ class Login extends Component {
                       >
                         <div className="input-field__email">
                           <label htmlFor="email" className="email_label">
-                            Email Adresse: {/* <span>{email}</span> */}
+                            Email Adresse: 
                           </label>
                           <input
                             className="email_input"
@@ -112,13 +70,12 @@ class Login extends Component {
                             type="email"
                             id="email"
                             placeholder="xyz@hotmail.com"
-                            onClick={this.handleEmailChange}
                           />
                         </div>
 
                         <div className="input-field__password">
                           <label htmlFor="password" className="password_label">
-                            Passwort: {/* <span>{password}</span> */}
+                            Passwort: 
                           </label>
                           <input
                             className="password_input"
@@ -126,7 +83,6 @@ class Login extends Component {
                             type="password"
                             id="password"
                             placeholder="*****"
-                            onClick={this.handlePasswordChange}
                           />
                         </div>
 

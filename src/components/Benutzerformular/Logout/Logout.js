@@ -20,7 +20,7 @@ class Logout extends Component {
     return (
       <div>
         <button className="logout" onClick={this.logout}>
-          Logout
+          Abmelden
         </button>
       </div>
     );

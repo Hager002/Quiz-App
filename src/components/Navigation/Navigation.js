@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
-import Logout from "../Benutzerformular/Logout";
+import Logout from "../Benutzerformular/Logout/Logout";
 
 export default function Navigation({ reset }) {
   return (

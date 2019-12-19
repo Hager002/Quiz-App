@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import AppSchwierigkeitsgrad from "./Schwierigkeitsgrad";
-
 class Timer extends Component {
   state = {
     min: 3,

@@ -2,13 +2,12 @@ import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./style/style.scss";
 
-import Login from "./components/Benutzerformular/Login";
-import { Registrieren } from "./components/Benutzerformular/Registrieren";
+import Login from "./components/Benutzerformular/Login/Login";
+import { Registrieren } from "./components/Benutzerformular/Registrierung/Registrieren";
 import Home from "./components/Home/Home";
 import { Verlauf } from "./components/Verlauf/Verlauf";
 import Ergebnis from "./components/Gameboard/FragenNeu/Ergebnis/Ergebnis";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { Gameboard } from "./components/Gameboard/Gameboard.js";
 
 function App() {
   return (

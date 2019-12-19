@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import axios from "../axios";
+import axios from "../../axios";
 
 export class Registrieren extends Component {
   state = {
@@ -20,11 +20,8 @@ export class Registrieren extends Component {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    // Match multiple fields: stimmen sich beides, email und passwort, mit denen eines Users aus der datenbank überien
-    // const query = '?q={"name": "' + name + '", "geburtsdatum": "' + geburtsdatum + '", "email": "' + email + '", "password": "' + password + '"}';
-
     axios
-      .post("/login", {
+      .post("/accounts", {
         name: name,
         geburtsdatum: geburtsdatum,
         email: email,

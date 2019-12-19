@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import Question from "../FragenNeu/Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
-import { func } from "prop-types";
-import Ergebnis from "./Ergebnis/Ergebnis";
 import Spinner from "react-spinner-material";
 
 export default function Fragen({
@@ -11,11 +9,10 @@ export default function Fragen({
   schwierigkeit,
   backButtonHandler,
   forwardButtonHandler,
-  quitButtonHandler,
-  handleOptionClick
+  quitButtonHandler
 }) {
   const [question, setQuestion] = useState([]);
-  const [iscorrect, setIsCorrect] = useState([]);
+  //  const [iscorrect, setIsCorrect] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [load, setLoad] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
@@ -45,7 +42,7 @@ export default function Fragen({
       setCurrentQuestion(currentQuestion + 1);
     }
     if (currentQuestion === question.length - 1) {
-      console.log("fragen fertig ");
+      console.log("keine weiteren fragen vorhanden");
       window.location.href = "/ergebnis";
     }
   }
@@ -56,9 +53,6 @@ export default function Fragen({
     }
   }
 
-  function erg() {
-    window.location.href = "/ergebnis";
-  }
   function quitButtonHandler() {
     if (window.confirm("Quit?")) {
       window.location.href = "/ergebnis";
@@ -114,6 +108,10 @@ export default function Fragen({
             optionB={question[currentQuestion].answers[1].text}
             optionC={question[currentQuestion].answers[2].text}
             optionD={question[currentQuestion].answers[3].text}
+            rightOrWrongA={question[currentQuestion].answers[0].iscorrect}
+            rightOrWrongB={question[currentQuestion].answers[1].iscorrect}
+            rightOrWrongC={question[currentQuestion].answers[2].iscorrect}
+            rightOrWrongD={question[currentQuestion].answers[3].iscorrect}
           />
         </div>
       );

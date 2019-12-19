@@ -1,6 +1,4 @@
 import React from "react";
-import FragenNeu from "../../Gameboard/FragenNeu/FragenNeu";
-import axios from "../../axios";
 
 export default function AppThema({ onThemaChange }) {
   return (
