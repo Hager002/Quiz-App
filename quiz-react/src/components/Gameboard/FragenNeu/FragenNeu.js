@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import axios from "../../axios";
 import Question from "./Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
-import Spinner from "react-spinner-material";
+import Loading from '../../loading';
+import Ergebnis from './Ergebnis/Ergebnis';
 
-export default function Fragen({
+
+export default function Questions({
   topic,
   schwierigkeit,
   backButtonHandler,
   forwardButtonHandler,
   quitButtonHandler
 }) {
-  const [question, setQuestion] = useState([]);
-  //  const [iscorrect, setIsCorrect] = useState([]);
+  const [questions, setQuestions] = useState([]);
+  const [showErgebnis, setShowErgebnis] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [load, setLoad] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
@@ -20,125 +22,73 @@ export default function Fragen({
 
   useEffect(() => {
     console.log(topic, schwierigkeit);
-    const fetch = () => {
-      axios
-        .get("/" + topic)
-        .then(response => {
-          setQuestion(response.data);
-          console.log(response.data);
-          setLoad(false);
-        })
-        .catch(error => {
-          console.log(error);
-          setLoad(false);
-        });
-    };
+    axios
+      .get("/questions", {
+        params: {
+          q: {"topic": {"_id": topic}}
+        }
+      })
+      .then(response => {
+        console.log(response.data);
+        setQuestions(response.data);
+        setLoad(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setLoad(false);
+      });
     setLoad(true);
-    fetch();
-  }, [topic, schwierigkeit]);
+  }, [topic]);
 
-  function forwardButtonHandler() {
-    if (currentQuestion < question.length - 1) {
+  const forward = () => {
+    if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
-    }
-    if (currentQuestion === question.length - 1) {
-      console.log("keine weiteren fragen vorhanden");
-      window.location.href = "/ergebnis";
+    } else if (currentQuestion === questions.length - 1) {
+      setShowErgebnis(true);      
     }
   }
 
-  function backButtonHandler() {
+  const back = () => {
+    if (showErgebnis) {
+      setShowErgebnis(false);
+    }
     if (currentQuestion !== 0) {
       setCurrentQuestion(currentQuestion - 1);
     }
   }
 
-  function quitButtonHandler() {
-    if (window.confirm("Quit?")) {
-      window.location.href = "/ergebnis";
+  const validateAnswer = answer => {
+    console.log(answer);
+    questions[currentQuestion].selectedAnswer = answer;
+    if (answer.iscorrect) {
+      console.log("Correct");
+      setCorrectAnswer(correctAnswer +1);
     } else {
+      console.log("Wrong");
+      setWrongAnswer(wrongAnswer +1);
     }
+    console.log("Correct: " + correctAnswer);
+    console.log("Wrong: " + wrongAnswer);
+
+    forward();
   }
 
-  function anzahl() {
-    let anzahl = question.length;
-  }
-
-  // function handleOptionClick(event) {
-  //   if (event.target.question[currentQuestion].answers[0].iscorrect === true) {
-  //     setCorrectAnswer = setCorrectAnswer + 1;
-  //     setWrongAnswer = setWrongAnswer;
-  //     console.log("richtige Antwort");
-  //   } else {
-  //     setWrongAnswer = setWrongAnswer + 1;
-  //     setCorrectAnswer = setCorrectAnswer;
-  //     console.log("falsche Antwort");
-  //   }
-  // }
-  // function rightWrongAnswer() {
-  //   return (
-  //     <div>
-  //       <Question
-  //         istrichtig={setCorrectAnswer}
-  //         istfalsch={setWrongAnswer}
-  //         antwort={question[currentQuestion].question.answers[0].iscorrect}
-  //       />
-  //     </div>
-  //   );
-  // }
-  // rightWrongAnswer = handleOptionClick();
-
-  function setCorrectJSX() {
-    if (question.length === 0) {
-      if (load) {
-        return (
-          <div className="spinner">
-            <Spinner size={50} spinnerColor={"#333"} spinnerWidth={2} visible={true} />
-          </div>
-        );
-      } else {
-        return <p> Keine Daten vorhanden ...</p>;
-      }
-    } else {
-      return (
-        <div>
-          <Question
-            frage={question[currentQuestion].question}
-            optionA={question[currentQuestion].answers[0].text}
-            optionB={question[currentQuestion].answers[1].text}
-            optionC={question[currentQuestion].answers[2].text}
-            optionD={question[currentQuestion].answers[3].text}
-            rightOrWrongA={question[currentQuestion].answers[0].iscorrect}
-            rightOrWrongB={question[currentQuestion].answers[1].iscorrect}
-            rightOrWrongC={question[currentQuestion].answers[2].iscorrect}
-            rightOrWrongD={question[currentQuestion].answers[3].iscorrect}
-          />
-        </div>
-      );
-    }
-  }
-
-  let frageShow = null;
-  frageShow = setCorrectJSX();
-
-  function setQuizNav() {
-    return (
+  return questions.length === 0 ? (
+      load ? <Loading/> : <p> Keine Daten vorhanden ...</p>
+    ) : (
       <div>
+        {
+          showErgebnis ? (
+            <Ergebnis anzahl={questions.length} correct={correctAnswer} wrong={wrongAnswer} />
+          ) : (
+            <Question question={questions[currentQuestion]} onClick={validateAnswer} />
+          )
+        }
         <QuizNav
-          backButtonHandler={backButtonHandler}
-          forwardButtonHandler={forwardButtonHandler}
+          backButtonHandler={back}
+          forwardButtonHandler={forward}
           quitButtonHandler={quitButtonHandler}
         />
       </div>
     );
-  }
-  let navShow = null;
-  navShow = setQuizNav();
-
-  return (
-    <div>
-      {frageShow}
-      {navShow}
-    </div>
-  );
 }

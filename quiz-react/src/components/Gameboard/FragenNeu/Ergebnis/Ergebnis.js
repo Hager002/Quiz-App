@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
-export default function Ergebnis({ anzahl }) {
+export default function Ergebnis({ topic, anzahl, correct, wrong }) {
   return (
     <Fragment>
       <Helmet>
@@ -32,12 +32,12 @@ export default function Ergebnis({ anzahl }) {
           <MDBRow>
             <MDBCol size="6" sm="5" className="richtig">
               <p>
-                Richtige Antworten: <br /> <span>4</span>
+                Richtige Antworten: <br /> <span>{correct}</span>
               </p>
             </MDBCol>
             <MDBCol size="6" sm="5" className="falsch">
               <p>
-                Falsche Antworten: <br /> <span>1</span>
+                Falsche Antworten: <br /> <span>{wrong}</span>
               </p>
             </MDBCol>
           </MDBRow>
@@ -50,6 +50,12 @@ export default function Ergebnis({ anzahl }) {
               window.location.href = "/home";
             }}
           >
+          <button
+          className="goBackToHome"
+          onClick={() => {
+            window.location.href = "/home";
+          }}
+          />
             Zurück zur Startseite
           </button>
         </div>

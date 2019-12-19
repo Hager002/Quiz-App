@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
-import Question from "./FragenNeu/FragenNeu";
+import Questions from "./FragenNeu/FragenNeu";
 import Timer from "../Home/Schwirigkeitsgrad/Timer";
 
 export default function Gameboard({
@@ -24,7 +24,7 @@ export default function Gameboard({
         <div className="AAA">
           <div className="timer">{schwierigkeit === "schwer" ? <Timer /> : <div />}</div>
           <div className="questions">
-            <Question
+            <Questions
               topic={topic}
               schwierigkeit={schwierigkeit}
               backButtonHandler={backButtonHandler}

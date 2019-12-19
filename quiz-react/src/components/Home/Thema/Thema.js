@@ -1,31 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Loading from '../../loading';
+import axios from '../../axios';
 
 export default function AppThema({ onThemaChange }) {
-  return (
-    <section className="Thema">
-      <h3> Das Thema </h3>
+  const [topics, setTopics] = useState();
+  const [isLoading, setLoading] = useState(true);
 
-      <p>Such dir ein Thema aus.</p>
+  useEffect(() => {
+    axios
+      .get("/topics")
+      .then(response => {
+        setTopics(response.data);
+        console.log(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
 
-      <div className="radio">
-        <label className="thema">
-          <input type="radio" name="topic" id="topic1" onChange={e => onThemaChange(e.target.id)} /> Genetik
-          und Gentechnik
-        </label>
-      </div>
+  const listTopics = () => {
+    return 
+  }
 
-      <div className="radio">
-        <label className="thema">
-          <input type="radio" name="topic" id="topic2" onChange={e => onThemaChange(e.target.id)} /> Pflanzen
-        </label>
-      </div>
+  return isLoading ?  <Loading/> : 
+  (
+    topics.length === 0 ? <p>Keine Topics vorhanden!</p> :
+    (
+      <section className="Thema">
+        <h3>Themen</h3>
+        <p>Such dir ein Thema aus.</p>
+        { topics.map(topic => (
+          <div className="radio">
+            <label className="thema">
+              <input key={topic._id} type="radio" name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} />{topic.name}</label>
+          </div>
+        ))}
 
-      <div className="radio">
-        <label className="thema">
-          <input type="radio" name="topic" id="topic3" onChange={e => onThemaChange(e.target.id)} /> Leben im
-          Meer
-        </label>
-      </div>
-    </section>
-  );
+      </section>
+    )
+  )
 }

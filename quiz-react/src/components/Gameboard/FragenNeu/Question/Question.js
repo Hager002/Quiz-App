@@ -1,32 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Question extends Component {
-  handleOptionClick() {
-    console.log("this is:", this);
-  }
+export default function Question({question, onClick}) {
 
-  render() {
-    return (
-      <div>
-        <h2>{this.props.frage}</h2>
-
-        <div className="options-container">
-          <p className="option" href="#" onClick={e => this.handleOptionClick(e)}>
-            {this.props.optionA}
+  return (
+    <div>
+      <h2>{question.question}</h2>
+      <div className="options-container">
+        { question.answers.map(answer => (
+          <p className={`${answer === question.selectedAnswer ? "option option--selected " : "option"}`}  onClick={() => onClick(answer)}>
+            {answer.text}
           </p>
-          <p> {this.props.antwort}</p>
-          <p className="option" href="#" onClick={e => this.handleOptionClick(e)}>
-            {this.props.optionB}
-          </p>
-          <p className="option" href="#" onClick={e => this.handleOptionClick(e)}>
-            {this.props.optionC}
-          </p>
-          <p className="option" href="#" onClick={e => this.handleOptionClick(e)}>
-            {this.props.optionD}
-          </p>
-        </div>
+        ))}
       </div>
-    );
-  }
+    </div>
+  );
 }
-export default Question;
