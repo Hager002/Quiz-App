@@ -5,12 +5,9 @@ import QuizNav from "./QuizNav/QuizNav";
 import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
 
-
 export default function Questions({
   topic,
   schwierigkeit,
-  backButtonHandler,
-  forwardButtonHandler,
   quitButtonHandler
 }) {
   const [questions, setQuestions] = useState([]);
@@ -76,19 +73,26 @@ export default function Questions({
   return questions.length === 0 ? (
       load ? <Loading/> : <p> Keine Daten vorhanden ...</p>
     ) : (
-      <div>
+      <div className="board">
         {
           showErgebnis ? (
-            <Ergebnis anzahl={questions.length} correct={correctAnswer} wrong={wrongAnswer} />
+            <Ergebnis 
+              anzahl={questions.length} 
+              correct={correctAnswer} 
+              wrong={wrongAnswer} />
           ) : (
-            <Question question={questions[currentQuestion]} onClick={validateAnswer} />
+            <div> 
+            <Question 
+              question={questions[currentQuestion]} 
+              onClick={validateAnswer} />
+            <QuizNav
+              backButtonHandler={back}
+              forwardButtonHandler={forward}
+              quitButtonHandler={quitButtonHandler}
+            /></div>
           )
         }
-        <QuizNav
-          backButtonHandler={back}
-          forwardButtonHandler={forward}
-          quitButtonHandler={quitButtonHandler}
-        />
+        
       </div>
     );
 }

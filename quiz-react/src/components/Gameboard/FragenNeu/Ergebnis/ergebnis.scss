@@ -1,7 +1,9 @@
-.AAA_ergebnis {
-  background-color: $green;
+$green: rgb(20, 43, 19);
+$white: white; 
+
+.ergebnis_screen {
+  background-color: $white;
   height: 41.3rem;
-  color: $green;
   font-size: medium;
   font-weight: normal;
   font-size: 1.2rem;
@@ -11,19 +13,19 @@
 
 .richtig,
 .falsch,
-.fragenAnzahl,
+.fragen_anzahl,
 .zeit {
   width: 45%;
   text-align: center;
   margin: 0.5rem;
   padding: 0.8rem;
   border-radius: 100px;
-  border: 1px solid greenyellow;
-  color: greenyellow;
+  border: solid yellowgreen;
+  color: $green;
 
   margin-left: auto;
   margin-right: auto;
-  background: $green;
+  background: $white;
   vertical-align: middle;
 
   span {
@@ -31,7 +33,7 @@
   }
 }
 
-.backButton {
+.button_back {
   text-align: left;
   margin-top: 4rem;
 }

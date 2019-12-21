@@ -1,6 +1,6 @@
 import React from 'react';
 import Spinner from "react-spinner-material";
-import './loading.css';
+import './loading.scss';
 
 export default function Loading() {
   return (

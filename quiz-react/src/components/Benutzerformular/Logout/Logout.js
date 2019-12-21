@@ -1,5 +1,6 @@
 import React from "react";
 import { Component } from "react";
+import './logout.scss';
 
 class Logout extends Component {
   state = {

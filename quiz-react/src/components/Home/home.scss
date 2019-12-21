@@ -1,28 +1,12 @@
 $green: rgb(20, 43, 19);
-.AAA_home {
+.home_screen {
   background-color: $green;
   color: white;
   min-height: 42.3rem;
   margin-top: -1rem;
 }
 
-.Thema,
-.Schwierigkeit {
-  border: 3px solid rgba(9, 58, 21, 0.137);
-  max-width: 65%;
-  margin: 2rem auto;
-  padding: 1rem;
-  overflow: hidden;
-  color: white;
-  font-size: 1rem;
-
-  p,
-  input {
-    font-size: large;
-  }
-}
-
-.StartQuiz {
+.button_start_quiz {
   width: 40%;
   margin-left: 30%;
   margin-right: 30%;

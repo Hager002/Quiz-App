@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import Navigation from "../Navigation/Navigation";
+import './verlauf.scss';
 
 export class Verlauf extends Component {
   render() {
@@ -10,7 +11,7 @@ export class Verlauf extends Component {
           <title>Quiz App - Verlauf</title>
         </Helmet>
 
-        <div className="AAA">
+        <div className="overview">
           <header>
             <div className="App-navi">
               <Navigation />
@@ -20,32 +21,22 @@ export class Verlauf extends Component {
           <div>
             <h2> Verlauf </h2>
 
-            <section className="EinAblauf">
-              <h3>
-                Quiz <span>1</span>
-              </h3>
+            <section className="ein_ablauf">
               <p>
                 Thema: <span>...</span>
               </p>
-              <div className="eineFrage">
-                <p>
-                  <span>1.</span>Frage: <span>Meine Frage</span>
-                </p>
-                <div>
-                  <p>
-                    A: <span>1.Antwortmöglichkeit</span>
-                  </p>
-                  <p>
-                    B: <span>2.Antwortmöglichkeit</span>
-                  </p>
-                  <p>
-                    C: <span>3.Antwortmöglichkeit</span>
-                  </p>
-                  <p>
-                    D: <span>4.Antwortmöglichkeit</span>
-                  </p>
-                </div>
-              </div>
+              <p>
+                Datum: <span>...</span>
+              </p>
+              <p>
+                Fragenanzahl: <span>...</span>
+              </p>
+              <p>
+                richtige Antworten: <span>...</span>
+              </p>
+              <p>
+                falsche Antworten: <span>...</span>
+              </p>
             </section>
           </div>
         </div>

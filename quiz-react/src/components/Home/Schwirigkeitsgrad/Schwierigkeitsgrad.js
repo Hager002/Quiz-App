@@ -1,4 +1,5 @@
 import React from "react";
+import './schwierigkeitsgrad.scss'; 
 
 export default function AppSchwierigkeitsgrad({ onSchwierigkeitsChange }) {
   return (

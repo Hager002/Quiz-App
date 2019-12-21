@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import axios from "../../axios";
+import "./registrieren.scss"; 
 
 export class Registrieren extends Component {
   state = {
@@ -54,9 +55,9 @@ export class Registrieren extends Component {
           <title>Quiz App - Registrieren</title>
         </Helmet>
 
-        <section className="App-registrieren container">
+        <section className="registration container">
           <form className="reg_form" key={_id} onSubmit={this.handleSubmit}>
-            <h1 className="reg_h1">Registrieren</h1>
+            <h1>Registrieren</h1>
 
             <div className="reg_form_fields">
               <div className="input-field ">

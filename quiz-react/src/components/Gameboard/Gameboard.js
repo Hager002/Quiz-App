@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import Questions from "./FragenNeu/FragenNeu";
 import Timer from "../Home/Schwirigkeitsgrad/Timer";
+import './gameboard.scss';
 
 export default function Gameboard({
   topic,
@@ -21,7 +22,7 @@ export default function Gameboard({
         <Helmet>
           <title>Quiz-Gameboard</title>
         </Helmet>
-        <div className="AAA">
+        <div className="gameboard_screen">
           <div className="timer">{schwierigkeit === "schwer" ? <Timer /> : <div />}</div>
           <div className="questions">
             <Questions

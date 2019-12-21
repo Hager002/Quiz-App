@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from '../../loading';
 import axios from '../../axios';
+import './thema.scss'; 
 
 export default function AppThema({ onThemaChange }) {
   const [topics, setTopics] = useState();
@@ -34,7 +35,7 @@ export default function AppThema({ onThemaChange }) {
         { topics.map(topic => (
           <div className="radio">
             <label className="thema">
-              <input key={topic._id} type="radio" name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} />{topic.name}</label>
+              <input key={topic._id} type="radio" name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} /> {topic.name} </label>
           </div>
         ))}
 

@@ -4,6 +4,7 @@ import Schwierigkeitsgrad from "./Schwirigkeitsgrad/Schwierigkeitsgrad";
 import { Helmet } from "react-helmet";
 import Navigation from "../Navigation/Navigation";
 import Gameboard from "../Gameboard/Gameboard";
+import './home.scss'; 
 
 export default function Home() {
   const [topic, setTopic] = useState();
@@ -18,11 +19,11 @@ export default function Home() {
       <Helmet>
         <title>Quiz App - Game</title>
       </Helmet>
-      <div className="AAA_home">
+      <div className="home_screen">
         {quiz ? (
           <Gameboard topic={topic} schwierigkeit={schwierigkeit} reset={() => setQuiz(false)} />
         ) : (
-          <div id="home">
+          <div>
             <header>
               <div className="App-navi">
                 <Navigation />
@@ -30,7 +31,7 @@ export default function Home() {
             </header>
             <Thema onThemaChange={setTopic} />
             <Schwierigkeitsgrad onSchwierigkeitsChange={setSchwierigkeit} />
-            <button className="StartQuiz" onClick={startQuiz}>
+            <button className="button_start_quiz" onClick={startQuiz}>
               Start
             </button>
           </div>

@@ -3,16 +3,7 @@ $green: rgb(20, 43, 19);
 .logout {
   color: $green;
   background-color: yellowgreen;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  position: fixed;
   top: 0;
   right: 0;
-  margin-bottom: 0.6rem;
-  margin-top: 1rem;
-  line-height: 2rem;
-
-  &:hover {
-    filter: brightness(150%);
-  }
 }

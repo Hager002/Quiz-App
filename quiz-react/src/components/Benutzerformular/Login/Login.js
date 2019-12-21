@@ -2,7 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { Button, Card, CardDeck } from "react-bootstrap";
 import axios from "../../axios";
-import {login} from "../../../services/user-service"
+import {login} from "../../../services/user-service";
+import './login.scss';
 
 class Login extends Component {
   state = {

@@ -1,37 +1,29 @@
-.App-registrieren {
+.registration {
   border: 3px solid rgba(0, 0, 0, 0.137);
   padding: 2rem;
   margin: 2rem auto;
   overflow: hidden;
   color: white;
+}
 
-  .reg_h1 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-  button {
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
-    margin-top: 2rem;
-    overflow: hidden;
-    line-height: 3rem;
-  }
-
-  hr {
-    width: 70%;
-    size: 5;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    border-top: 2px solid gray;
-  }
+hr {
+  width: 70%;
+  size: 5;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-top: 2px solid gray;
 }
 
 .reg_form_fields {
   margin-left: 28.5%;
 }
-.App-registrieren {
+
+.registration {
   display: grid;
   grid-template-columns: auto;
 
@@ -87,5 +79,12 @@
 }
 
 .regSubmitButton {
+  width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 2rem;
+    overflow: hidden;
+    line-height: 3rem;
   font-weight: bold;
+  background-color: greenyellow;;
 }

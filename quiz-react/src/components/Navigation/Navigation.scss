@@ -5,15 +5,13 @@ $green: rgb(20, 43, 19);
   line-height: 2rem;
 }
 
-.App-header {
-  margin-bottom: rem;
-}
-
-.nav1,
-.nav2 {
+.nav_item {
+ &_1, &_2 {
   color: yellowgreen;
 
   &:hover {
     filter: brightness(150%);
   }
+ }
 }
+

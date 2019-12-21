@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import './ergebnis.scss';
 
 export default function Ergebnis({ topic, anzahl, correct, wrong }) {
   return (
@@ -13,7 +14,7 @@ export default function Ergebnis({ topic, anzahl, correct, wrong }) {
         <title> Ergebnis </title>
       </header>
 
-      <div className="ergebnis AAA_ergebnis">
+      <div className="ergebnis_screen">
         <MDBContainer>
           <MDBRow>
             <MDBCol size="6" sm="5" className="zeit">
@@ -23,7 +24,7 @@ export default function Ergebnis({ topic, anzahl, correct, wrong }) {
             </MDBCol>
           </MDBRow>
           <MDBRow>
-            <MDBCol size="6" sm="5" className="fragenAnzahl">
+            <MDBCol size="6" sm="5" className="fragen_anzahl">
               <p>
                 Fragen: <br /> <span>{anzahl}</span>
               </p>
@@ -43,20 +44,13 @@ export default function Ergebnis({ topic, anzahl, correct, wrong }) {
           </MDBRow>
         </MDBContainer>
 
-        <div className="backButton">
+        <div className="button_back">
           <button
             className="goBackToHome"
             onClick={() => {
               window.location.href = "/home";
             }}
-          >
-          <button
-          className="goBackToHome"
-          onClick={() => {
-            window.location.href = "/home";
-          }}
-          />
-            Zurück zur Startseite
+          > Zurück zur Startseite
           </button>
         </div>
       </div>
