@@ -6,35 +6,28 @@ import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
 
 export default function Questions({
+  quiz,
   topic,
   schwierigkeit,
-  quitButtonHandler
+  onReset
 }) {
   const [questions, setQuestions] = useState([]);
   const [showErgebnis, setShowErgebnis] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [load, setLoad] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
-  const [wrongAnswer, setWrongAnswer] = useState(0);
 
   useEffect(() => {
-    console.log(topic, schwierigkeit);
     axios
       .get("/questions", {
         params: {
           q: {"topic": {"_id": topic}}
         }
       })
-      .then(response => {
-        console.log(response.data);
-        setQuestions(response.data);
-        setLoad(false);
-      })
+      .then(response => setQuestions(response.data))
       .catch(error => {
+        window.alert("Fehler bei Zugriff auf die Datenbank! Bitte Seite neu Laden oder Administrator verständigen");
         console.log(error);
-        setLoad(false);
       });
-    setLoad(true);
   }, [topic]);
 
   const forward = () => {
@@ -55,44 +48,32 @@ export default function Questions({
   }
 
   const validateAnswer = answer => {
-    console.log(answer);
     questions[currentQuestion].selectedAnswer = answer;
     if (answer.iscorrect) {
-      console.log("Correct");
       setCorrectAnswer(correctAnswer +1);
-    } else {
-      console.log("Wrong");
-      setWrongAnswer(wrongAnswer +1);
-    }
-    console.log("Correct: " + correctAnswer);
-    console.log("Wrong: " + wrongAnswer);
-
+    } 
     forward();
   }
 
-  return questions.length === 0 ? (
-      load ? <Loading/> : <p> Keine Daten vorhanden ...</p>
-    ) : (
-      <div className="board">
-        {
-          showErgebnis ? (
-            <Ergebnis 
-              anzahl={questions.length} 
-              correct={correctAnswer} 
-              wrong={wrongAnswer} />
-          ) : (
-            <div> 
-            <Question 
-              question={questions[currentQuestion]} 
-              onClick={validateAnswer} />
-            <QuizNav
-              backButtonHandler={back}
-              forwardButtonHandler={forward}
-              quitButtonHandler={quitButtonHandler}
-            /></div>
-          )
-        }
-        
-      </div>
-    );
+  return questions.length === 0 ? <Loading/> : (
+    <div className="board">
+      {
+        showErgebnis ? (
+          <Ergebnis 
+            quiz={quiz}
+            topic={topic}
+            anzahl={questions.length} 
+            correct={correctAnswer} />
+        ) : (
+          <Question 
+            question={questions[currentQuestion]} 
+            onClick={validateAnswer} />
+        )
+      }
+      <QuizNav
+        onBack={back}
+        onForward={forward}
+        onReset={onReset}/>
+    </div>
+  );
 }

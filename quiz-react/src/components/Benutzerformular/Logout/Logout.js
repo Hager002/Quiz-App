@@ -1,30 +1,12 @@
 import React from "react";
-import { Component } from "react";
 import './logout.scss';
 
-class Logout extends Component {
-  state = {
-    navigate: false
-  };
-
-  logout = () => {
-    localStorage.clear("token");
-    this.setState({ navigate: true });
-  };
-
-  render() {
-    const { navigate } = this.state;
-    if (navigate) {
-      return (window.location.href = "/");
-    }
-
-    return (
-      <div>
-        <button className="logout" onClick={this.logout}>
-          Abmelden
-        </button>
-      </div>
-    );
-  }
+export default function Logout({ onClick, isLoggedin }) {
+  return isLoggedin ? (
+    <div>
+      <button className="logout" onClick={onClick}>Abmelden</button>
+    </div>
+  ) : (
+    <div />
+  );
 }
-export default Logout;

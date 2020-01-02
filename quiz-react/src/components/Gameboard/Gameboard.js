@@ -5,19 +5,13 @@ import Timer from "../Home/Schwirigkeitsgrad/Timer";
 import './gameboard.scss';
 
 export default function Gameboard({
+  quiz, 
   topic,
   schwierigkeit,
-  reset,
-  backButtonHandler,
-  forwardButtonHandler,
-  quitButtonHandler,
-  handleOptionClick
+  onReset,
 }) {
   return (
     <div>
-      <button className="reset" onClick={reset} value="reset">
-        Reset
-      </button>
       <Fragment>
         <Helmet>
           <title>Quiz-Gameboard</title>
@@ -26,12 +20,10 @@ export default function Gameboard({
           <div className="timer">{schwierigkeit === "schwer" ? <Timer /> : <div />}</div>
           <div className="questions">
             <Questions
+              quiz={quiz}
               topic={topic}
               schwierigkeit={schwierigkeit}
-              backButtonHandler={backButtonHandler}
-              forwardButtonHandler={forwardButtonHandler}
-              quitButtonHandler={quitButtonHandler}
-              handleOptionClick={handleOptionClick}
+              onReset={onReset} 
             />
           </div>
         </div>

@@ -4,15 +4,19 @@ import Schwierigkeitsgrad from "./Schwirigkeitsgrad/Schwierigkeitsgrad";
 import { Helmet } from "react-helmet";
 import Navigation from "../Navigation/Navigation";
 import Gameboard from "../Gameboard/Gameboard";
+import Uuid from 'uuid/v1';
 import './home.scss'; 
 
-export default function Home() {
+export default function Home({}) {
   const [topic, setTopic] = useState();
   const [schwierigkeit, setSchwierigkeit] = useState();
   const [quiz, setQuiz] = useState();
 
-  const isNotEmpty = variable => variable;
-  const startQuiz = () => setQuiz(isNotEmpty(topic) && isNotEmpty(schwierigkeit));
+  const startQuiz = () => {
+    if (topic && schwierigkeit) {
+      setQuiz(Uuid());
+    }
+  };
 
   return (
     <Fragment>
@@ -21,7 +25,7 @@ export default function Home() {
       </Helmet>
       <div className="home_screen">
         {quiz ? (
-          <Gameboard topic={topic} schwierigkeit={schwierigkeit} reset={() => setQuiz(false)} />
+          <Gameboard quiz={quiz} topic={topic} schwierigkeit={schwierigkeit} onReset={() => setQuiz()} />
         ) : (
           <div>
             <header>
