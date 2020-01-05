@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
 import Questions from "./FragenNeu/FragenNeu";
-import Timer from "../Home/Schwirigkeitsgrad/Timer";
+import Timer from "../../pages/Home/Schwirigkeitsgrad/Timer";
 import './gameboard.scss';
 
 export default function Gameboard({

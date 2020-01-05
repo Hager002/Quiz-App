@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Loading from '../../loading';
-import axios from '../../axios';
+import Loading from '../../../components/loading/index';
+import axios from '../../../components/axios';
 import './thema.scss'; 
 
 export default function AppThema({ onThemaChange }) {

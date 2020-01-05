@@ -8,10 +8,10 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   version: 1.0.3
 paths:
-  /user/login:
+  /login:
     get:
       summary: Logs user into the system
-      operationId: loginUser
+      operationId: login
       parameters:
         - name: email
           in: query
@@ -50,11 +50,33 @@ paths:
             application/json:
               schema:
                 type: string
-  /user/logout:
-    get:
-      summary: Logs out current logged in user session
-      operationId: logoutUser
+  /register:
+    post:
+      summary: create a new user
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/User'
       responses:
-        default:
+        '201':
           description: successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        name:
+          type: string
+        geburtsdatum:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+

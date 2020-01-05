@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Header from './components/Header/header';
-import Login from "./components/Benutzerformular/Login/Login";
+import Auth from "./pages/Auth/Auth";
 import { UserProvider } from './context/user';
-import { Registrieren } from "./components/Benutzerformular/Registrierung/Registrieren";
-import Home from "./components/Home/Home";
-import Verlauf from "./components/Verlauf/Verlauf";
+import Registrieren from "./components/Benutzerformular/Registrierung/Registrieren";
+import Home from "./pages/Home/Home";
+import Verlauf from "./pages/Verlauf/Verlauf";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "./style/style.scss";
 
-function App() {
+function App() { 
   const [user, setUser] = useState();
   return (
     <div className="App">
@@ -20,12 +20,11 @@ function App() {
             <BrowserRouter>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route path="/registrieren" component={Registrieren} />
                 <Route path="/verlauf" component={Verlauf} />
               </Switch>
             </BrowserRouter>
           ) : (
-            <Login onLogin={user => setUser(user)}/>
+            <Auth onLogin={user => setUser(user)}/>
           )}
         </UserProvider>
       </div>

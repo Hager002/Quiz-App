@@ -1,9 +1,8 @@
 "use strict";
 const axios = require("../services/axios");
-const simplecrypt = require("simplecrypt");
+const security = require('../services/security');
 
-module.exports.loginUser = async function loginUser(req, res, next) {
-  //  console.log(JSON.stringify(req));
+module.exports.login = async function login(req, res, next) {
   let response = await axios.get("/accounts", {
     params: {
       q: { "email" : req.email.value }
@@ -11,7 +10,7 @@ module.exports.loginUser = async function loginUser(req, res, next) {
   });
   if (response) {
     if (response.data[0]) {
-      if (response.data[0].password === req.password.value) {
+      if (security.decrypt(response.data[0].password) === req.password.value) {
         res.send(response.data[0]);
       } else {
         res.status(401);

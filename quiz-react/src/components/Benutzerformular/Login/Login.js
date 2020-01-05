@@ -1,17 +1,19 @@
 import React, { useState, Fragment } from "react";
 import { Helmet } from "react-helmet";
 import { Button, Card, CardDeck } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import { login } from "../../../services/user-service";
 import './login.scss';
 
-export default function Login({ onLogin }) {
+export default function Login({ onLogin, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submit = event => {
     event.preventDefault();
     login({email, password})
-      .then(user => onLogin(user));
+      .then(user => onLogin(user))
+      .catch(error => console.error(error));
   };
 
   return (
@@ -71,26 +73,19 @@ export default function Login({ onLogin }) {
                       </div>
 
                       <div className="input-field">
-                        <button
-                          className="cardLogin__login"
-                          variant="primary"
-                          name="submit"
-                          type="submit"
-                        >{" "}
-                          Anmelden{" "}
-                        </button>
+                        <button className="cardLogin__login" variant="primary" name="submit" type="submit"> Anmelden </button>
                       </div>
                     </form>
                   </section>
                 </Card.Text>{" "}
                 <hr className="trennlinie"></hr>
-                <Card.Link href="/registrieren" className="cardLogin__reg">
+                <button onClick={onRegister} >
                   Neues Konto erstellen
-                </Card.Link>
+                </button>
               </Card.Body>
             </Card>
           </div>
-        </CardDeck>
+        </CardDeck> 
       </div>
     </Fragment>
   );
