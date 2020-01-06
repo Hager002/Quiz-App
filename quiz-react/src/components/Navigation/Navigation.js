@@ -8,11 +8,11 @@ export default function Navigation({ reset }) {
     <div>
       <Navbar className="navbar" variant="tabs">
         <Nav.Item className="nav_item">
-        <Link className="nav_item_1" to="/">Quiz</Link>
+        <Link className="nav_item_1" to="/"> Quiz </Link>
         </Nav.Item>
 
         <Nav.Item className="nav_item">
-        <Link className="nav_item_2" to="/verlauf">Verlauf</Link>
+        <Link className="nav_item_2" to="/verlauf"> Verlauf </Link>
         </Nav.Item>
       </Navbar>
     </div>

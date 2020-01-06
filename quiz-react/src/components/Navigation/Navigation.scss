@@ -5,13 +5,12 @@ $green: rgb(20, 43, 19);
   line-height: 2rem;
 }
 
-.nav_item {
- &_1, &_2 {
+.nav_item_1, .nav_item_2 {
   color: yellowgreen;
+  margin-right: 1rem;
 
   &:hover {
     filter: brightness(150%);
   }
- }
 }
 

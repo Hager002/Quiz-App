@@ -34,8 +34,8 @@ export default function AppThema({ onThemaChange }) {
         <p>Such dir ein Thema aus.</p>
         { topics.map(topic => (
           <div className="radio">
-            <label className="thema">
-              <input key={topic._id} type="radio" name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} /> {topic.name} </label>
+            <label className="thema" tabindes="0">
+              <input key={topic._id} type="radio"  name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} /> {topic.name} </label>
           </div>
         ))}
 

@@ -23,6 +23,42 @@ export default function Login({ onLogin, onRegister }) {
       </Helmet>
       <div className="AAA_login">
         <CardDeck>
+          
+          <div className="cardLogin">
+            <Card>
+              <Card.Body className="cardLogin__body">
+                <Card.Title className="cardLogin__title">Anmelden</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
+                <Card.Text>
+                  <section className="App-login container">
+                    <form className="login" role="form" id="login_form" aria-label="Login Formular" onSubmit={submit} >
+
+                      <div className="input-field__email">
+                        <label htmlFor="email" className="email_label">Email Adresse:</label>
+                        <input className="email_input" name="email" type="email" id="email"
+                          placeholder="xyz@hotmail.com" value={email} onChange={event => setEmail(event.target.value)}
+                        />
+                      </div>
+
+                      <div className="input-field__password">
+                        <label htmlFor="password" className="password_label">Passwort: </label>
+                        <input className="password_input" name="password" type="password" id="password" 
+                        placeholder="*****" value={password} onChange={event => setPassword(event.target.value)}/>
+                      </div>
+
+                      <div className="input-field">
+                        <button className="cardLogin__login" aria-label="Anmelden" variant="primary" name="submit" type="submit"> Anmelden </button>
+                      </div>
+
+                    </form>
+                  </section>
+                </Card.Text>{" "}
+                <hr className="trennlinie"></hr>
+                <button className="cardLogin__reg" aria-label="Neues Konto Erstellen" onClick={onRegister} > Neues Konto erstellen </button>
+              </Card.Body>
+            </Card>
+          </div>
+          
           <div className="cardInfo">
             <Card>
               <Card.Body className="cardInfo__body">
@@ -37,54 +73,7 @@ export default function Login({ onLogin, onRegister }) {
               </Card.Body>
             </Card>
           </div>
-          <div className="cardLogin">
-            <Card>
-              <Card.Body className="cardLogin__body">
-                <Card.Title className="cardLogin__title">Anmelden</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
-                <Card.Text>
-                  <section className="App-login container">
-                    <form className="login" onSubmit={submit} >
-                      <div className="input-field__email">
-                        <label htmlFor="email" className="email_label">Email Adresse:</label>
-                        <input 
-                          className="email_input"
-                          name="email"
-                          type="email"
-                          id="email"
-                          placeholder="xyz@hotmail.com"
-                          value={email}
-                          onChange={event => setEmail(event.target.value)}
-                        />
-                      </div>
-                      <div className="input-field__password">
-                        <label htmlFor="password" className="password_label">
-                          Passwort: 
-                        </label>
-                        <input
-                          className="password_input"
-                          name="password"
-                          type="password"
-                          id="password"
-                          placeholder="*****"
-                          value={password}
-                          onChange={event => setPassword(event.target.value)}
-                        />
-                      </div>
-
-                      <div className="input-field">
-                        <button className="cardLogin__login" variant="primary" name="submit" type="submit"> Anmelden </button>
-                      </div>
-                    </form>
-                  </section>
-                </Card.Text>{" "}
-                <hr className="trennlinie"></hr>
-                <button onClick={onRegister} >
-                  Neues Konto erstellen
-                </button>
-              </Card.Body>
-            </Card>
-          </div>
+          
         </CardDeck> 
       </div>
     </Fragment>

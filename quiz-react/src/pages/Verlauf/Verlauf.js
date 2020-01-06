@@ -33,7 +33,7 @@ export default function Verlauf({}) {
         <Navigation />
       </div>
       <div className="overview">
-        <h2> Verlauf </h2>
+        <h2> Verlaufübersicht </h2>
         <section className="ein_ablauf">
           {results.map(result => <div>
             <hr/>
