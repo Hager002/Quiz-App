@@ -18,7 +18,8 @@ let options_object = {
   router: true,
   validator: true
 };
-// oasTppl startet den Server für uns
+
+// oasTool startet den Server für uns
 oasTools.configure(options_object);
 oasTools.initialize(oasDoc, app, function() {
   http.createServer(app).listen(serverPort, function() {

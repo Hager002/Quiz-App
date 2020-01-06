@@ -4,17 +4,13 @@ import Question from "./Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
 import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
+import ErgebnisNav from './Ergebnis/ErgebnisNav/ErgebnisNav';
 
-export default function Questions({
-  quiz,
-  topic,
-  schwierigkeit,
-  onReset
-}) {
+export default function Questions({quiz, topic, onReset}) {
   const [questions, setQuestions] = useState([]);
-  const [showErgebnis, setShowErgebnis] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
+  const [showErgebnis, setShowErgebnis] = useState(false);
 
   useEffect(() => {
     axios
@@ -59,21 +55,17 @@ export default function Questions({
     <div className="board">
       {
         showErgebnis ? (
-          <Ergebnis 
-            quiz={quiz}
-            topic={topic}
-            anzahl={questions.length} 
-            correct={correctAnswer} />
+          <div> 
+            <Ergebnis quiz={quiz} topic={topic} anzahl={questions.length} correct={correctAnswer} />
+            <ErgebnisNav onReset={onReset}/>
+          </div>
         ) : (
-          <Question 
-            question={questions[currentQuestion]} 
-            onClick={validateAnswer} />
+          <div> 
+            <Question question={questions[currentQuestion]} onClick={validateAnswer} />
+            <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
+          </div>
         )
       }
-      <QuizNav
-        onBack={back}
-        onForward={forward}
-        onReset={onReset}/>
     </div>
   );
 }

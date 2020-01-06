@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Nav, Navbar } from "react-bootstrap";
-import "./Navigation.scss"; 
+import "./Navigation.css"; 
 
 export default function Navigation({ reset }) {
   return (

@@ -1,9 +1,9 @@
-$green: rgb(20, 43, 19);
-
 .logout {
-  color: $green;
+  color: rgb(20, 43, 19);
   background-color: yellowgreen;
   position: fixed;
   top: 0;
   right: 0;
+  font-size: 12pt;
+font-weight: bold;
 }

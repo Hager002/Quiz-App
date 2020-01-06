@@ -1,0 +1,14 @@
+.navbar {
+  background-color: darken( rgb(20, 43, 19), 5%);
+  line-height: 2rem;
+}
+
+.nav_item_1, .nav_item_2 {
+  color: yellowgreen;
+  margin-right: 1rem;
+  font-size: 17pt;
+}
+
+.nav_item_1, .nav_item_2:hover {
+    filter: brightness(150%);
+  }

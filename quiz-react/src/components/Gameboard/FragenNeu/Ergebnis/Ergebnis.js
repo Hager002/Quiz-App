@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import UserContext from '../../../../context/user';
 import axios from '../../../axios';
-import './ergebnis.scss';
+import './ergebnis.css';
 
 export default function Ergebnis({ quiz, topic, anzahl, correct }) {
   const user = useContext(UserContext);

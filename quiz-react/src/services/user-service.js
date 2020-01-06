@@ -6,7 +6,7 @@ const instance = axios.create({
   baseURL: baseURL,
 });
 
-instance.interceptors.request.use(request => {
+/* instance.interceptors.request.use(request => {
   console.log('Starting Request', request)
   return request
 })
@@ -14,7 +14,7 @@ instance.interceptors.request.use(request => {
 instance.interceptors.response.use(response => {
   console.log('Response:', response)
   return response
-})
+}) */
 
 export function register(user) {
   return instance.post("/register", user)

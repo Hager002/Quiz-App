@@ -1,20 +1,16 @@
-$white: white;
-$green: rgb(20, 43, 19);
-$black: black; 
-
 .gameboard_screen {
-  background-color: $green;
+  background-color: rgb(20, 43, 19);
   min-height: 42.3rem;
   margin-top: -1rem;
 }
 .timer {
-  color: $white;
+  color: white;
   font-weight: normal;
 }
 
 .reset {
-  background-color: $black;
-  color: $white;
+  background-color: black;
+  color: white;
   height: 2rem;
   position: fixed;
   top: 0;

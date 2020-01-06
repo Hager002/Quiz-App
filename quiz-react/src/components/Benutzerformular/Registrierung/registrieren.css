@@ -26,8 +26,9 @@ hr {
 .registration {
   display: grid;
   grid-template-columns: auto;
+}
 
-  .regName__label {
+.regName__label {
     grid-column: 1;
     grid-row: 1;
     width: 60%;
@@ -76,7 +77,6 @@ hr {
     width: 60%;
     text-align: center;
   }
-}
 
 .regSubmitButton {
   width: 30%;

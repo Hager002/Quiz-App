@@ -1,5 +1,5 @@
 import React from "react";
-import './logout.scss';
+import './logout.css';
 
 export default function Logout({ onClick, isLoggedin }) {
   return isLoggedin ? (

@@ -1,0 +1,25 @@
+.overview {
+  background: white;
+  color: black;
+  border: 3px solid rgba(0, 0, 0, 0.137);
+  margin: 2rem auto;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.overview_h2 {
+  color: black; 
+  text-align: center;
+}
+
+p {
+  font-size: 14pt; 
+}
+
+.verlauf_screen {
+  background-color: rgb(20, 43, 19);
+  color: white;
+  min-height: 42.3rem;
+  margin-top: -1rem;
+  font-size: 16pt;
+}

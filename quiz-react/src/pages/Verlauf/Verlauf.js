@@ -4,7 +4,7 @@ import UserContext from '../../context/user';
 import Loading from '../../components/loading/loading';
 import axios from '../../components/axios';
 
-import './verlauf.scss';
+import './verlauf.css';
 
 export default function Verlauf({}) {
   const [results, setResults] = useState([]);
@@ -29,22 +29,24 @@ export default function Verlauf({}) {
       <Helmet>
         <title>Quiz App - Verlauf</title>
       </Helmet>
-      <div className="App-navi">
-        <Navigation />
-      </div>
-      <div className="overview">
-        <h2> Verlaufübersicht </h2>
-        <section className="ein_ablauf">
-          {results.map(result => <div>
-            <hr/>
-            <p>Datum: <span>{result.date}</span></p>
-            <p>Thema: <span>{result.topic[0].name}</span></p>
-            <p>Fragenanzahl: <span>{result.total}</span></p>
-            <p>richtige Antworten: <span>{result.correct}</span></p>
-          </div>
-          )}
-          </section>
+      <div className="verlauf_screen">
+        <div className="App-navi">
+          <Navigation />
         </div>
+        <div className="overview">
+          <h2 className="overview_h2"> Verlaufübersicht </h2>
+          <section className="ein_ablauf">
+            {results.map(result => <div>
+              <hr/>
+              <p>Datum: <span>{result.date}</span></p>
+              <p>Thema: <span>{result.topic[0].name}</span></p>
+              <p>Fragenanzahl: <span>{result.total}</span></p>
+              <p>richtige Antworten: <span>{result.correct}</span></p>
+            </div>
+            )}
+            </section>
+          </div>
+      </div>
       </Fragment>
     );  
 }

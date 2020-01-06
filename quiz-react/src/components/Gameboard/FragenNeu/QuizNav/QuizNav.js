@@ -1,5 +1,5 @@
 import React from "react";
-import './quizNav.scss';
+import './quizNav.css';
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';

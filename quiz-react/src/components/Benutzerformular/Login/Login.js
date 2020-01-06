@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { Button, Card, CardDeck } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { login } from "../../../services/user-service";
-import './login.scss';
+import './login.css';
 
 export default function Login({ onLogin, onRegister }) {
   const [email, setEmail] = useState("");
@@ -31,30 +31,25 @@ export default function Login({ onLogin, onRegister }) {
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                 <Card.Text>
                   <section className="App-login container">
-                    <form className="login" role="form" id="login_form" aria-label="Login Formular" onSubmit={submit} >
-
+                    <form className="login" role="form" id="login_form" aria-label="Login Formular" onSubmit={submit}>
                       <div className="input-field__email">
                         <label htmlFor="email" className="email_label">Email Adresse:</label>
                         <input className="email_input" name="email" type="email" id="email"
-                          placeholder="xyz@hotmail.com" value={email} onChange={event => setEmail(event.target.value)}
-                        />
+                          placeholder="xyz@hotmail.com" value={email} onChange={event => setEmail(event.target.value)}/>
                       </div>
-
                       <div className="input-field__password">
-                        <label htmlFor="password" className="password_label">Passwort: </label>
+                        <label htmlFor="password" className="password_label">Passwort:</label>
                         <input className="password_input" name="password" type="password" id="password" 
                         placeholder="*****" value={password} onChange={event => setPassword(event.target.value)}/>
                       </div>
-
                       <div className="input-field">
-                        <button className="cardLogin__login" aria-label="Anmelden" variant="primary" name="submit" type="submit"> Anmelden </button>
+                        <button className="cardLogin__login" aria-label="Anmelden" variant="primary" name="submit" type="submit">Anmelden</button>
                       </div>
-
                     </form>
                   </section>
-                </Card.Text>{" "}
+                </Card.Text>
                 <hr className="trennlinie"></hr>
-                <button className="cardLogin__reg" aria-label="Neues Konto Erstellen" onClick={onRegister} > Neues Konto erstellen </button>
+                <button className="cardLogin__reg" aria-label="Neues Konto Erstellen" onClick={onRegister}>Neues Konto erstellen</button>
               </Card.Body>
             </Card>
           </div>

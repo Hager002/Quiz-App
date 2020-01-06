@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import Navigation from "../../components/Navigation/Navigation";
 import Gameboard from "../../components/Gameboard/Gameboard";
 import Uuid from 'uuid/v1';
-import './home.scss'; 
+import './home.css'; 
 
 export default function Home({}) {
   const [topic, setTopic] = useState();
@@ -28,14 +28,12 @@ export default function Home({}) {
           <Gameboard quiz={quiz} topic={topic} schwierigkeit={schwierigkeit} onReset={() => setQuiz()} />
         ) : (
           <div>
-              <div className="App-navi">
-                <Navigation />
-              </div>
+            <div className="App-navi">
+              <Navigation />
+            </div>
             <Thema onThemaChange={setTopic} />
             <Schwierigkeitsgrad onSchwierigkeitsChange={setSchwierigkeit} />
-            <button className="button_start_quiz" onClick={startQuiz}>
-              Start
-            </button>
+            <button className="button_start_quiz" onClick={startQuiz}>Start</button>
           </div>
         )}
       </div>

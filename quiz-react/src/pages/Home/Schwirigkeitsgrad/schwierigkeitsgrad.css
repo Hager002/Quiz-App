@@ -1,4 +1,4 @@
-.Thema {
+.Schwierigkeit {
     border: 3px solid rgba(9, 58, 21, 0.137);
     max-width: 65%;
     margin: 2rem auto;
@@ -7,8 +7,12 @@
     color: white;
     font-size: 1rem;
   
+}
     p,
     input {
       font-size: large;
     }
-  }
+
+    .schwierigkeit {
+      font-size: 14pt;
+    }

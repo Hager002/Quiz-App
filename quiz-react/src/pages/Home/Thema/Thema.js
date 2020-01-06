@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from '../../../components/loading/index';
 import axios from '../../../components/axios';
-import './thema.scss'; 
+import './thema.css'; 
 
 export default function AppThema({ onThemaChange }) {
   const [topics, setTopics] = useState();
@@ -38,7 +38,6 @@ export default function AppThema({ onThemaChange }) {
               <input key={topic._id} type="radio"  name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} /> {topic.name} </label>
           </div>
         ))}
-
       </section>
     )
   )
