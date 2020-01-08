@@ -3,7 +3,9 @@
   padding: 2rem;
   margin: 2rem auto;
   overflow: hidden;
-  color: white;
+  color: black;
+  background-color: white;
+
 }
 
 h1 {
@@ -86,5 +88,5 @@ hr {
     overflow: hidden;
     line-height: 3rem;
   font-weight: bold;
-  background-color: greenyellow;;
+  background-color: rgb(143, 245, 231);
 }

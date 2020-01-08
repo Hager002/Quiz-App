@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TimerIcon from '@material-ui/icons/Timer';
 class Timer extends Component {
   state = {
     min: 3,
@@ -42,7 +43,7 @@ class Timer extends Component {
     return (
       <div className="timer">
         <p>
-          Übrige Zeit: {min}:{sec}
+          <TimerIcon/> Übrige Zeit: {min}:{sec}
         </p>
       </div>
     );

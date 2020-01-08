@@ -33,12 +33,12 @@ export default function Login({ onLogin, onRegister }) {
                   <section className="App-login container">
                     <form className="login" role="form" id="login_form" aria-label="Login Formular" onSubmit={submit}>
                       <div className="input-field__email">
-                        <label htmlFor="email" className="email_label">Email Adresse:</label>
+                        <label for="email" htmlFor="email" className="email_label">Email Adresse:</label>
                         <input className="email_input" name="email" type="email" id="email"
                           placeholder="xyz@hotmail.com" value={email} onChange={event => setEmail(event.target.value)}/>
                       </div>
                       <div className="input-field__password">
-                        <label htmlFor="password" className="password_label">Passwort:</label>
+                        <label for="password" htmlFor="password" className="password_label">Passwort:</label>
                         <input className="password_input" name="password" type="password" id="password" 
                         placeholder="*****" value={password} onChange={event => setPassword(event.target.value)}/>
                       </div>

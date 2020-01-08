@@ -31,15 +31,15 @@ export default function Ergebnis({ quiz, topic, anzahl, correct }) {
       <div className="ergebnis_screen">
         <MDBContainer>
           <MDBRow>
-            <MDBCol size="6" sm="5" className="fragen_anzahl">
+            <MDBCol size="4" sm="5" className="fragen_anzahl">
               <p>Fragen: <br /> <span>{anzahl}</span></p>
             </MDBCol>
           </MDBRow>
           <MDBRow>
-            <MDBCol size="6" sm="5" className="richtig">
+            <MDBCol size="4" sm="5" className="richtig">
               <p>Richtige Antworten: <br /> <span>{correct}</span></p>
             </MDBCol>
-            <MDBCol size="6" sm="5" className="falsch">
+            <MDBCol size="4" sm="5" className="falsch">
               <p>Falsche Antworten: <br /> <span>{(anzahl - correct)}</span></p>
             </MDBCol>
           </MDBRow>

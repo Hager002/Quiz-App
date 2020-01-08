@@ -6,7 +6,7 @@ import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
 import ErgebnisNav from './Ergebnis/ErgebnisNav/ErgebnisNav';
 
-export default function Questions({quiz, topic, onReset}) {
+export default function Questions({quiz, topic, onReset, anzahl}) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
@@ -60,8 +60,8 @@ export default function Questions({quiz, topic, onReset}) {
             <ErgebnisNav onReset={onReset}/>
           </div>
         ) : (
-          <div> 
-            <Question question={questions[currentQuestion]} onClick={validateAnswer} />
+          <div > 
+            <Question question={questions[currentQuestion]} currentQuestionIndex={currentQuestion} onClick={validateAnswer} />
             <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
           </div>
         )

@@ -1,5 +1,8 @@
 .AAA_login {
+  display: flex;
   margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .cardInfo,
@@ -9,14 +12,9 @@
   padding-top: 2rem;
 }
 
-.cardLogin {
-  margin-left: 6rem;
-  margin-right: 6rem;
-}
-
 .cardInfo__body,
 .cardLogin__body {
-  box-shadow: 1rem 1rem 1rem rgb(54, 88, 2);
+  box-shadow: 0.3rem 0.3rem 0.3rem white;
   height: 24rem;
 }
 
@@ -31,7 +29,7 @@
 .cardLogin__reg,
 .cardLogin__login {
   color: rgb(20, 43, 19);
-  background-color: yellowgreen;
+  background-color: rgb(143, 245, 231);
   border-radius: 0.2rem;
   padding: 0.5rem;
   border: 1.8px solid rgba(0, 0, 0, 0.137);
