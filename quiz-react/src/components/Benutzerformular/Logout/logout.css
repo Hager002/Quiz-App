@@ -1,9 +1,12 @@
 .logout {
   color: rgb(20, 43, 19);
   background-color: rgb(143, 245, 231);
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   font-size: 12pt;
 font-weight: bold;
+margin-right: 1rem;
+flex-wrap: wrap-reverse;
+
 }

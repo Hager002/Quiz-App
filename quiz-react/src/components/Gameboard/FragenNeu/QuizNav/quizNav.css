@@ -1,5 +1,5 @@
 .quiz-nav {
-      width: 10%;
+      width: 7rem;
       padding: 15px;
       box-sizing: border-box;
       border-radius: 100px;
@@ -10,4 +10,7 @@
       transition: all 0.2s;
       box-sizing: border-box;
       text-align: center;
+
+      flex-wrap: wrap-reverse;
+      
     }

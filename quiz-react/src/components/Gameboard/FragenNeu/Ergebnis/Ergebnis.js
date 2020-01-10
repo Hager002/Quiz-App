@@ -1,9 +1,12 @@
 import React, { useEffect, useContext, Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 import UserContext from '../../../../context/user';
 import axios from '../../../axios';
 import './ergebnis.css';
+import SentimentVerySatisfiedSharpIcon from '@material-ui/icons/SentimentVerySatisfiedSharp';
+import SentimentVeryDissatisfiedSharpIcon from '@material-ui/icons/SentimentVeryDissatisfiedSharp';
+import SentimentSatisfiedSharpIcon from '@material-ui/icons/SentimentSatisfiedSharp';
+import SentimentDissatisfiedSharpIcon from '@material-ui/icons/SentimentDissatisfiedSharp';
 
 export default function Ergebnis({ quiz, topic, anzahl, correct }) {
   const user = useContext(UserContext);
@@ -20,31 +23,54 @@ export default function Ergebnis({ quiz, topic, anzahl, correct }) {
       .catch(error => console.log(error))
   }, [quiz, correct])
 
+
+
   return (
     <Fragment>
       <Helmet>
         <title>Quiz App - Ergebnis</title>
       </Helmet>
-      <header>
-        <title> Ergebnis </title>
-      </header>
-      <div className="ergebnis_screen">
-        <MDBContainer>
-          <MDBRow>
-            <MDBCol size="4" sm="5" className="fragen_anzahl">
-              <p>Fragen: <br /> <span>{anzahl}</span></p>
-            </MDBCol>
-          </MDBRow>
-          <MDBRow>
-            <MDBCol size="4" sm="5" className="richtig">
-              <p>Richtige Antworten: <br /> <span>{correct}</span></p>
-            </MDBCol>
-            <MDBCol size="4" sm="5" className="falsch">
-              <p>Falsche Antworten: <br /> <span>{(anzahl - correct)}</span></p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </div>
+
+      <section className="ergebnis_screen">
+
+        <p className="info"> Du hast {correct} von {anzahl} Fragen richtig beantwortet. </p>  
+
+        { (correct === 0) ? (
+          <div>
+            <SentimentVeryDissatisfiedSharpIcon className="emoji"/> 
+            <p className="commentar" >Du weisst nichst. Du bist ein Looser!</p>
+          </div>
+          ) : (<div />)}
+
+        { (correct === 1) ? (
+          <div> 
+            <SentimentDissatisfiedSharpIcon className="emoji"/> 
+            <p className="commentar" >Na ja, wenigstens etwas! Aber wie es scheint ist das nicht dein Fachgebiet!</p>
+          </div>
+          ) : (<div />)}
+
+        { (correct === 2) ? (
+          <div>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Na ja, wenigstens etwas! Du musst dich noch einbisschen bemühen!</p>
+          </div>
+        ) : (<div />)}
+
+        { (correct === 3) ? (
+          <div>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Fast Perfect. streng dich noch bissi an</p>
+          </div>
+        ) : (<div />)}
+
+        { (correct > 3) ? (
+          <div>
+            <SentimentVerySatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Gratuliere, alles richtig!</p>
+          </div>
+        ) : (<div />) }
+
+      </section>
     </Fragment>
   );
 }

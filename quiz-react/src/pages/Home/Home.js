@@ -6,6 +6,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import Gameboard from "../../components/Gameboard/Gameboard";
 import Uuid from 'uuid/v1';
 import './home.css'; 
+import { Toast } from "react-bootstrap";
 
 export default function Home({}) {
   const [topic, setTopic] = useState();
@@ -15,6 +16,9 @@ export default function Home({}) {
   const startQuiz = () => { 
     if (topic && schwierigkeit) {
       setQuiz(Uuid());
+    }
+    else {
+      alert("Bitte such dir ein Thema und eine Schwierigkeit aus"); 
     }
   };
 

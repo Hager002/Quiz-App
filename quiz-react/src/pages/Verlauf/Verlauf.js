@@ -24,6 +24,13 @@ export default function Verlauf({}) {
       });
   }, []);
 
+
+  const datetime = () => {
+    var dateUTCString = date; 
+    var date = new Date(dateUTCString);
+    date.toLocaleDateString('de-AT', {day: '2-digit', month:'2-digit', year:'numeric'});          
+  }
+
   return results.length === 0 ? <Loading/> : (
     <Fragment>
       <Helmet>
@@ -36,13 +43,14 @@ export default function Verlauf({}) {
         <div className="overview">
           <h2 className="overview_h2"> Verlaufübersicht </h2>
           <section className="ein_ablauf">
-            {results.map(result => <div>
-              <hr/>
-              <p>Datum: <span>{result.date}</span></p>
-              <p>Thema: <span>{result.topic[0].name}</span></p>
-              <p>Fragenanzahl: <span>{result.total}</span></p>
-              <p>richtige Antworten: <span>{result.correct}</span></p>
-            </div>
+            {results.map(result =>  
+              <div>              
+                <hr/>
+                <p>Datum: <span>{result.date}</span></p>
+                <p>Thema: <span>{result.topic[0].name}</span></p>
+                <p>Fragenanzahl: <span>{result.total}</span></p>
+                <p>richtige Antworten: <span>{result.correct}</span></p>
+              </div>
             )}
             </section>
           </div>

@@ -12,8 +12,11 @@ export default function Gameboard({quiz, topic, schwierigkeit, onReset, anzahl, 
           <title>Quiz-Gameboard</title>
         </Helmet>
         <div className="gameboard_screen">
-          {/* <p>{topic}</p>
-          <p>Frage <span>{currentQuestionIndex}</span> von <span>{anzahl}</span></p>  */}
+          
+          {/*   Kontext anzeigen   */}
+          <p>{topic}</p>
+          <p>Frage {currentQuestionIndex} von {anzahl} </p>  
+
           <div className="timer">{schwierigkeit === "schwer" ? <Timer /> : <div />}</div>
           <div className="questions">
             <Questions quiz={quiz} topic={topic} schwierigkeit={schwierigkeit} onReset={onReset} />

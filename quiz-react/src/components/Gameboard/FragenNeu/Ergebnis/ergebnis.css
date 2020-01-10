@@ -1,38 +1,28 @@
 
 .ergebnis_screen {
+  border: 3px solid rgba(0, 0, 0, 0.137);
+  padding: 2rem;
   background-color: white;
   min-height: 100%;
-  font-size: medium;
-  font-weight: normal;
-  font-size: 1.2rem;
-  padding-top: 3rem;
-  vertical-align: middle;
-}
-
-.richtig,
-.falsch,
-.fragen_anzahl {
-  width: 30%;
+  display: contents;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  margin: 0.5rem;
-  padding: 0.8rem;
-  border-radius: 70px;
-  border: solid black;
+  margin-top: 2rem ;
+  overflow: hidden;
   color: black;
-
-  margin-left: auto;
-  margin-right: auto;
-  vertical-align: middle;
 }
 
-.richtig {
-  background-color: rgb(96, 247, 96);
-}
-.falsch {
-  background-color: red;
+.info {
+  font-size: 18pt;
 }
 
-span {
-    font-weight: bold;
-  }
+.emoji {
+ font-size: 50px;
+ white-space: nowrap;
+}
 
+.commentar {
+  font-size: 18pt;
+  white-space: nowrap;
+}
