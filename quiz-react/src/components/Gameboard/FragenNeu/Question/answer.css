@@ -1,0 +1,30 @@
+.answer {
+    background-color: rgba(102, 107, 110, 0.199);
+    border-radius: 15px;
+    color: black;
+    cursor: pointer;
+    margin: 1rem;
+    padding: 1rem;
+    transition: 0.3s linear all;
+    text-align: center;
+    width: 95%;
+    overflow: hidden;
+    font-size: 85%;
+  }
+.answer:hover {
+  background-color: (rgba(39, 42, 44, 0.199), 20%);
+}
+.answer--disabled {
+  background-color: grey;
+  cursor: default;
+}
+.answer--correct {
+  background-color: green;
+}
+.answer--wrong {
+  background-color: red;
+}
+
+.answer--selected {
+  border: 2px solid blue;
+}

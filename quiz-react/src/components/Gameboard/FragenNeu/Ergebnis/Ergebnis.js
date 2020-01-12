@@ -32,6 +32,7 @@ export default function Ergebnis({ quiz, topic, anzahl, correct }) {
       </Helmet>
 
       <section className="ergebnis_screen">
+        <p>{topic}</p>
 
         <p className="info"> Du hast {correct} von {anzahl} Fragen richtig beantwortet. </p>  
 

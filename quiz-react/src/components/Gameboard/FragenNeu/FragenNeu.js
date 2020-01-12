@@ -10,6 +10,7 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
+  const [wrongAnswer, setWrongAnswer] = useState(0);
   const [showErgebnis, setShowErgebnis] = useState(false);
 
   useEffect(() => {
@@ -45,10 +46,8 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
 
   const validateAnswer = answer => {
     questions[currentQuestion].selectedAnswer = answer;
-    if (answer.iscorrect) {
-      setCorrectAnswer(correctAnswer +1);
-    } 
-    forward();
+    answer.iscorrect ? setCorrectAnswer(correctAnswer +1) : setWrongAnswer(wrongAnswer + 1);
+    setTimeout(() => { forward(); }, 1000);
   }
 
   return questions.length === 0 ? <Loading/> : (
@@ -61,7 +60,7 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
           </div>
         ) : (
           <div > 
-            <Question question={questions[currentQuestion]} currentQuestionIndex={currentQuestion} onClick={validateAnswer} />
+            <Question question={questions[currentQuestion]} anzahl={questions.length} onClick={validateAnswer} />
             <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
           </div>
         )

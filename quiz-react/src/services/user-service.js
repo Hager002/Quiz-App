@@ -29,6 +29,6 @@ export function login({email, password}) {
       password: password
     }
   })
-  .then(response => response.data)
-  .catch(error => console.error(error));
+   // .then(response => response)
+    .catch(error => error.response);
 };

@@ -8,12 +8,27 @@ import './login.css';
 export default function Login({ onLogin, onRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorType, setErrorType] = useState();
+  const [errorMessage, setErrorMessage] = useState();
 
   const submit = event => {
     event.preventDefault();
+    setErrorType();
+    setErrorMessage();
     login({email, password})
-      .then(user => onLogin(user))
-      .catch(error => console.error(error));
+      .then(response => {
+        console.log(response);
+        if (response.status === 200) {
+          onLogin(response.data);
+        } else {
+          setErrorMessage(response.data);
+          if (response.status === 401) {
+            setErrorType("password");
+          } else if (response.status === 404) {
+            setErrorType("email");
+          }
+        }
+      });
   };
 
   return (
@@ -34,13 +49,29 @@ export default function Login({ onLogin, onRegister }) {
                     <form className="login" role="form" id="login_form" aria-label="Login Formular" onSubmit={submit}>
                       <div className="input-field__email">
                         <label for="email" htmlFor="email" className="email_label">Email Adresse:</label>
-                        <input className="email_input" name="email" type="email" id="email"
-                          placeholder="xyz@hotmail.com" value={email} onChange={event => setEmail(event.target.value)}/>
+                        <input 
+                          className={`email_input ${errorType ==="email" ? "input--error" : ""}`} 
+                          name="email" 
+                          type="email" 
+                          id="email"
+                          placeholder="xyz@hotmail.com" 
+                          value={email} 
+                          onChange={event => setEmail(event.target.value)}
+                        />
+                        { errorType === "email" ? <p className="error-message">{errorMessage}</p> : ""  }
                       </div>
                       <div className="input-field__password">
                         <label for="password" htmlFor="password" className="password_label">Passwort:</label>
-                        <input className="password_input" name="password" type="password" id="password" 
-                        placeholder="*****" value={password} onChange={event => setPassword(event.target.value)}/>
+                        <input 
+                          className={`password_input ${errorType ==="password" ? "input--error" : ""}`} 
+                          name="password" 
+                          type="password" 
+                          id="password" 
+                          placeholder="*****" 
+                          value={password} 
+                          onChange={event => setPassword(event.target.value)}
+                        />
+                         { errorType === "password" ? <p className="error-message">{errorMessage}</p> : ""  }
                       </div>
                       <div className="input-field">
                         <button className="cardLogin__login" aria-label="Anmelden" variant="primary" name="submit" type="submit">Anmelden</button>
@@ -48,6 +79,7 @@ export default function Login({ onLogin, onRegister }) {
                     </form>
                   </section>
                 </Card.Text>
+                { errorType === undefined && errorMessage ? <p className="error-message">{errorMessage}</p> : ""  }
                 <hr className="trennlinie"></hr>
                 <button className="cardLogin__reg" aria-label="Neues Konto Erstellen" onClick={onRegister}>Neues Konto erstellen</button>
               </Card.Body>
