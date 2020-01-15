@@ -30,12 +30,12 @@ export default function AppThema({ onThemaChange }) {
     topics.length === 0 ? <p>Keine Topics vorhanden!</p> :
     (
       <section className="Thema">
-        <h3>Themen</h3>
+        <h3>Das Thema</h3>
         <p>Such dir ein Thema aus.</p>
         { topics.map(topic => (
           <div className="radio">
             <label className="thema" tabindes="0">
-              <input key={topic._id} type="radio"  name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id)} /> {topic.name} </label>
+              <input key={topic._id} type="radio"  name="topic" id={topic._id} onChange={e => onThemaChange(e.target.id, topic.name)} /> {topic.name} </label>
           </div>
         ))}
       </section>

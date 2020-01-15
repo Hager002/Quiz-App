@@ -3,8 +3,10 @@ import Navigation from "../../components/Navigation/Navigation";
 import UserContext from '../../context/user';
 import Loading from '../../components/loading/loading';
 import axios from '../../components/axios';
-
+import moment from "moment"; 
 import './verlauf.css';
+
+const DATETIME_FORMAT = "DD.MM.YYYY HH:mm:ss"
 
 export default function Verlauf({}) {
   const [results, setResults] = useState([]);
@@ -24,13 +26,6 @@ export default function Verlauf({}) {
       });
   }, []);
 
-
-  const datetime = () => {
-    var dateUTCString = date; 
-    var date = new Date(dateUTCString);
-    date.toLocaleDateString('de-AT', {day: '2-digit', month:'2-digit', year:'numeric'});          
-  }
-
   return results.length === 0 ? <Loading/> : (
     <Fragment>
       <Helmet>
@@ -41,12 +36,12 @@ export default function Verlauf({}) {
           <Navigation />
         </div>
         <div className="overview">
-          <h2 className="overview_h2"> Verlaufübersicht </h2>
+          <h3 className="overview_h3"> Verlaufübersicht </h3>
           <section className="ein_ablauf">
             {results.map(result =>  
               <div>              
                 <hr/>
-                <p>Datum: <span>{result.date}</span></p>
+                <p>Datum: <span>{ moment(result.data).format(DATETIME_FORMAT)}</span></p>
                 <p>Thema: <span>{result.topic[0].name}</span></p>
                 <p>Fragenanzahl: <span>{result.total}</span></p>
                 <p>richtige Antworten: <span>{result.correct}</span></p>

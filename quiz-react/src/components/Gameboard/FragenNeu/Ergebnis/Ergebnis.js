@@ -8,7 +8,7 @@ import SentimentVeryDissatisfiedSharpIcon from '@material-ui/icons/SentimentVery
 import SentimentSatisfiedSharpIcon from '@material-ui/icons/SentimentSatisfiedSharp';
 import SentimentDissatisfiedSharpIcon from '@material-ui/icons/SentimentDissatisfiedSharp';
 
-export default function Ergebnis({ quiz, topic, anzahl, correct }) {
+export default function Ergebnis({ quiz, topic, topicName, anzahl, correct }) {
   const user = useContext(UserContext);
   
   useEffect(() => {
@@ -32,44 +32,74 @@ export default function Ergebnis({ quiz, topic, anzahl, correct }) {
       </Helmet>
 
       <section className="ergebnis_screen">
-        <p>{topic}</p>
+        <p className="topicname">{topicName}</p>
 
         <p className="info"> Du hast {correct} von {anzahl} Fragen richtig beantwortet. </p>  
 
-        { (correct === 0) ? (
+      {/* 3 Fragen: */}
+        { ((anzahl === 3) && (correct === 0)) ? (
           <div>
             <SentimentVeryDissatisfiedSharpIcon className="emoji"/> 
-            <p className="commentar" >Du weisst nichst. Du bist ein Looser!</p>
+            <p className="commentar" >Du hast ja keine Ahnung. Du bist ein Looser!</p>
           </div>
           ) : (<div />)}
 
-        { (correct === 1) ? (
+        { ((anzahl === 3) && (correct === 1)) ? (
           <div> 
             <SentimentDissatisfiedSharpIcon className="emoji"/> 
             <p className="commentar" >Na ja, wenigstens etwas! Aber wie es scheint ist das nicht dein Fachgebiet!</p>
           </div>
           ) : (<div />)}
 
-        { (correct === 2) ? (
-          <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
-            <p className="commentar" >Na ja, wenigstens etwas! Du musst dich noch einbisschen bemühen!</p>
-          </div>
-        ) : (<div />)}
-
-        { (correct === 3) ? (
+        { ((anzahl === 3) && (correct === 2)) ? (
           <div>
             <SentimentSatisfiedSharpIcon className="emoji"/>
             <p className="commentar" >Fast Perfect. streng dich noch bissi an</p>
           </div>
         ) : (<div />)}
 
-        { (correct > 3) ? (
+        { ((anzahl === 3) &&(correct === 3)) ? (
           <div>
-            <SentimentVerySatisfiedSharpIcon className="emoji"/>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
             <p className="commentar" >Gratuliere, alles richtig!</p>
           </div>
-        ) : (<div />) }
+        ) : (<div />)}
+
+      {/* 4 Fragen: */}
+        { ((anzahl === 4) && (correct === 0)) ? (
+          <div>
+            <SentimentVeryDissatisfiedSharpIcon className="emoji"/> 
+            <p className="commentar" >Du hast ja keine Ahnung. Du bist ein Looser!</p>
+          </div>
+          ) : (<div />)}
+
+        { ((anzahl === 4) && (correct === 1)) ? (
+          <div> 
+            <SentimentDissatisfiedSharpIcon className="emoji"/> 
+            <p className="commentar" >Na ja, wenigstens etwas! Aber wie es scheint ist das nicht dein Fachgebiet!</p>
+          </div>
+          ) : (<div />)}
+
+        { ((anzahl === 4) && (correct === 2)) ? (
+          <div>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Na ja, wenigstens etwas! Du musst dich noch einbisschen bemühen!</p>
+          </div>
+        ) : (<div />)}
+
+        { ((anzahl === 4) &&(correct === 3)) ? (
+          <div>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Fast Perfect. streng dich noch bissi an</p>
+          </div>
+        ) : (<div />)}
+
+        { ((anzahl === 4) &&(correct === 4)) ? (
+          <div>
+            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <p className="commentar" >Gratuliere, alles richtig!</p>
+          </div>
+        ) : (<div />)}
 
       </section>
     </Fragment>

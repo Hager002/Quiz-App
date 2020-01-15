@@ -23,7 +23,7 @@ export default function Registrieren({ onLogin }) {
       </Helmet>
       <section className="registration container">
         <form className="reg_form" onSubmit={submit}>
-          <h1>Registrieren</h1>
+          <h3>Registrieren</h3>
           <div className="reg_form_fields">
 
             <div className="input-field ">

@@ -4,9 +4,10 @@ import Question from "./Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
 import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
+import Quizinfo from './Quizinfo/Quizinfo';
 import ErgebnisNav from './Ergebnis/ErgebnisNav/ErgebnisNav';
 
-export default function Questions({quiz, topic, onReset, anzahl}) {
+export default function Questions({quiz, topic, topicName, onReset, anzahl}) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
@@ -14,6 +15,7 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
   const [showErgebnis, setShowErgebnis] = useState(false);
 
   useEffect(() => {
+    console.log("from fragenneu: ",topic)
     axios
       .get("/questions", {
         params: {
@@ -47,19 +49,20 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
   const validateAnswer = answer => {
     questions[currentQuestion].selectedAnswer = answer;
     answer.iscorrect ? setCorrectAnswer(correctAnswer +1) : setWrongAnswer(wrongAnswer + 1);
-    setTimeout(() => { forward(); }, 1000);
-  }
+/*     setTimeout(() => { forward(); }, 1000); */  
+}
 
   return questions.length === 0 ? <Loading/> : (
     <div className="board">
       {
         showErgebnis ? (
           <div> 
-            <Ergebnis quiz={quiz} topic={topic} anzahl={questions.length} correct={correctAnswer} />
+            <Ergebnis quiz={quiz} topic={topic} topicName={topicName} anzahl={questions.length} correct={correctAnswer} />
             <ErgebnisNav onReset={onReset}/>
           </div>
         ) : (
           <div > 
+            <Quizinfo currentQuestionValue={currentQuestion+1} topicName={topicName} anzahl={questions.length} />
             <Question question={questions[currentQuestion]} anzahl={questions.length} onClick={validateAnswer} />
             <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
           </div>

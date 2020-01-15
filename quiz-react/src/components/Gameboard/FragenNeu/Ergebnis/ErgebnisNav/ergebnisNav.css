@@ -1,11 +1,16 @@
 
-    .ergebnis-nav {
-      width: 10%;
-      padding: 15px;
-      box-sizing: border-box;
-      border-radius: 100px;
-      background: #dfdfdf;
-      overflow: hidden;
-      font-size: 75%;
-      display: inline-block;
-    }
+.ergebnis-nav {
+  width: 7rem;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background: #dfdfdf;
+  overflow: hidden;
+  font-size: 75%;
+  display: inline-block;
+  transition: all 0.2s;
+  box-sizing: border-box;
+  text-align: center;
+  flex-wrap: wrap-reverse;
+  
+}

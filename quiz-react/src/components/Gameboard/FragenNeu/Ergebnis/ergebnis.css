@@ -11,10 +11,7 @@
   margin-top: 2rem ;
   overflow: hidden;
   color: black;
-}
-
-.info {
-  font-size: 18pt;
+  overflow-wrap: break-word;
 }
 
 .emoji {
@@ -22,7 +19,16 @@
  white-space: nowrap;
 }
 
-.commentar {
+
+.topicname, .commentar, .info {
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  font-weight: normal;
   font-size: 18pt;
-  white-space: nowrap;
+  display: inline-block;
+}
+
+.topicname {
+  font-weight: bold;
 }
