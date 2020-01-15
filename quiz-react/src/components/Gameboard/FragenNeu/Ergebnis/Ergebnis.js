@@ -32,35 +32,35 @@ export default function Ergebnis({ quiz, topic, topicName, anzahl, correct }) {
       </Helmet>
 
       <section className="ergebnis_screen">
-        <p className="topicname">{topicName}</p>
+        <p className="topicname">{topicName}</p><br/>
 
-        <p className="info"> Du hast {correct} von {anzahl} Fragen richtig beantwortet. </p>  
+        <p className="infotext"> Du hast {correct} von {anzahl} Fragen richtig beantwortet. </p>  
 
       {/* 3 Fragen: */}
         { ((anzahl === 3) && (correct === 0)) ? (
           <div>
-            <SentimentVeryDissatisfiedSharpIcon className="emoji"/> 
+            <SentimentVeryDissatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Du hast ja keine Ahnung. Du bist ein Looser!</p>
           </div>
           ) : (<div />)}
 
         { ((anzahl === 3) && (correct === 1)) ? (
           <div> 
-            <SentimentDissatisfiedSharpIcon className="emoji"/> 
+            <SentimentDissatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Na ja, wenigstens etwas! Aber wie es scheint ist das nicht dein Fachgebiet!</p>
           </div>
           ) : (<div />)}
 
         { ((anzahl === 3) && (correct === 2)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <SentimentSatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Fast Perfect. streng dich noch bissi an</p>
           </div>
         ) : (<div />)}
 
-        { ((anzahl === 3) &&(correct === 3)) ? (
+        { ((anzahl === 3) && (correct === 3)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <SentimentVerySatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Gratuliere, alles richtig!</p>
           </div>
         ) : (<div />)}
@@ -68,35 +68,35 @@ export default function Ergebnis({ quiz, topic, topicName, anzahl, correct }) {
       {/* 4 Fragen: */}
         { ((anzahl === 4) && (correct === 0)) ? (
           <div>
-            <SentimentVeryDissatisfiedSharpIcon className="emoji"/> 
+            <SentimentVeryDissatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Du hast ja keine Ahnung. Du bist ein Looser!</p>
           </div>
           ) : (<div />)}
 
         { ((anzahl === 4) && (correct === 1)) ? (
           <div> 
-            <SentimentDissatisfiedSharpIcon className="emoji"/> 
+            <SentimentDissatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Na ja, wenigstens etwas! Aber wie es scheint ist das nicht dein Fachgebiet!</p>
           </div>
           ) : (<div />)}
 
         { ((anzahl === 4) && (correct === 2)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <SentimentSatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Na ja, wenigstens etwas! Du musst dich noch einbisschen bemühen!</p>
           </div>
         ) : (<div />)}
 
         { ((anzahl === 4) &&(correct === 3)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <SentimentSatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Fast Perfect. streng dich noch bissi an</p>
           </div>
         ) : (<div />)}
 
         { ((anzahl === 4) &&(correct === 4)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon className="emoji"/>
+            <SentimentVerySatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Gratuliere, alles richtig!</p>
           </div>
         ) : (<div />)}

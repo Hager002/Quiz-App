@@ -14,19 +14,15 @@
   overflow-wrap: break-word;
 }
 
-.emoji {
- font-size: 50px;
- white-space: nowrap;
-}
-
-
-.topicname, .commentar, .info {
-  cursor: pointer;
-  text-align: center;
+.topicname, .commentar, .infotext {
+  align-items: center;
+  justify-content: center;
+  text-align: center;  
   overflow: hidden;
   font-weight: normal;
   font-size: 18pt;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .topicname {

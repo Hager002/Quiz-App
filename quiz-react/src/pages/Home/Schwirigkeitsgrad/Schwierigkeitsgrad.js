@@ -4,7 +4,7 @@ import './schwierigkeitsgrad.css';
 export default function AppSchwierigkeitsgrad({ onSchwierigkeitsChange }) {
   return (
     <section className="Schwierigkeit">
-      <h3> Die Schwierigkeitsstufe </h3>
+      <h3 role="heading"> Die Schwierigkeitsstufe </h3>
       <p>Such dir eine Schwierigkeitsstufe aus.</p>
       
       <label className="schwierigkeit" tabindes="0">
