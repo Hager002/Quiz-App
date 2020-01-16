@@ -7,6 +7,7 @@ import SentimentVerySatisfiedSharpIcon from '@material-ui/icons/SentimentVerySat
 import SentimentVeryDissatisfiedSharpIcon from '@material-ui/icons/SentimentVeryDissatisfiedSharp';
 import SentimentSatisfiedSharpIcon from '@material-ui/icons/SentimentSatisfiedSharp';
 import SentimentDissatisfiedSharpIcon from '@material-ui/icons/SentimentDissatisfiedSharp';
+import SentimentSatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
 
 export default function Ergebnis({ quiz, topic, topicName, anzahl, correct }) {
   const user = useContext(UserContext);
@@ -82,7 +83,7 @@ export default function Ergebnis({ quiz, topic, topicName, anzahl, correct }) {
 
         { ((anzahl === 4) && (correct === 2)) ? (
           <div>
-            <SentimentSatisfiedSharpIcon style={{fontSize:50}} className="emoji"/> <br/>
+            <SentimentSatisfiedIcon style={{fontSize:50}} className="emoji"/> <br/>
             <p className="commentar" >Na ja, wenigstens etwas! Du musst dich noch einbisschen bemühen!</p>
           </div>
         ) : (<div />)}

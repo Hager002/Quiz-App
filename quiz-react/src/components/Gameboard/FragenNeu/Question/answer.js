@@ -27,18 +27,33 @@ export default function Answer({answer, selectedAnswer, onClick}) {
   
   return hasUserSelectedAnswer() ? (
     <button 
+      className="sr-only"
+      readonly="readonly"
       sr-only="answer" 
       className={getStyle()}  
-      disabled>
-      { isSelectedAnswer() ? (<div>
+      aria-disabled>
+      { isSelectedAnswer() ? (
+        isCorrectAnswer() ? (
+      <div>
         { answer.text }<br />
-        {"(selected)"}
-      </div>
-      ) : answer.text}
+        {"(meine Antwort ist correct)"}
+      </div> 
+      ) : (<div>
+        { answer.text }<br />
+        {"(meine Antwort ist falsch)"}
+      </div>)
+      ) : (
+        isCorrectAnswer() ? (
+          <div>
+            { answer.text }<br />
+            {"(correct)"}
+          </div>
+        ): answer.text)}
     </button>
   ) : (
     <button 
       sr-only="answer" 
+      readonly="readonly"
       className={getStyle()}  
       onClick={() => onClick(answer)}>
       {answer.text}
