@@ -7,13 +7,13 @@ Das Projekt bildet einen Quiz Webapp-Prototypen ab, die Schüler und Schülerinn
 Die Applikation besteht aus zwei Projekten. Aus einem Backend-Server und einer React-App. Der Backend-Server wurde mit NodeJS eingerichtet. Die React-App ist das Frontend. 
 
 ## Projekt starten: 
-Das Frontend kann man im Bowser unter [http://localhost:3000] öffnen.
+Das Frontend kann man im Bowser unter [http://localhost:3000] öffnen. \
 Der Backend-Server läuft auf [http://localhost:5000].
 
-1.Schritt: Split Terminal
-2.Schritt: Frontend React-App - cd quiz-react
-3.Schritt: Backend-Server - cd quiz-js
-4.Schritt: beides mit 'npm start' zum laufen bringen
+1. Schritt: Split Terminal
+2. Schritt: Frontend React-App - cd quiz-react
+3. Schritt: Backend-Server - cd quiz-js
+4. Schritt: beides mit 'npm start' zum laufen bringen
 
 ## Frameworks & Sprachen:
 - ReactJS
