@@ -7,7 +7,7 @@ import Ergebnis from './Ergebnis/Ergebnis';
 import Quizinfo from './Quizinfo/Quizinfo';
 import ErgebnisNav from './Ergebnis/ErgebnisNav/ErgebnisNav';
 
-export default function Questions({quiz, topic, topicName, onReset, anzahl}) {
+export default function Questions({quiz, topic, onReset, anzahl}) {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [correctAnswer, setCorrectAnswer] = useState(0);
@@ -19,7 +19,7 @@ export default function Questions({quiz, topic, topicName, onReset, anzahl}) {
     axios
       .get("/questions", {
         params: {
-          q: {"topic": {"_id": topic}}
+          q: { topic }
         }
       })
       .then(response => setQuestions(response.data))
@@ -57,13 +57,13 @@ export default function Questions({quiz, topic, topicName, onReset, anzahl}) {
       {
         showErgebnis ? (
           <div> 
-            <Ergebnis quiz={quiz} topic={topic} topicName={topicName} anzahl={questions.length} correct={correctAnswer} />
+            <Ergebnis quiz={quiz} topic={topic} total={questions.length} correct={correctAnswer} />
             <ErgebnisNav onReset={onReset}/>
           </div>
         ) : (
           <div > 
-            <Quizinfo currentQuestionValue={currentQuestion+1} topicName={topicName} anzahl={questions.length} />
-            <Question question={questions[currentQuestion]} anzahl={questions.length} onClick={validateAnswer} />
+            <Quizinfo currentQuestionValue={currentQuestion+1} topicName={topic.name} total={questions.length} />
+            <Question question={questions[currentQuestion]} onClick={validateAnswer} />
             <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
           </div>
         )

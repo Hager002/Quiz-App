@@ -12,7 +12,6 @@ export default function Home({}) {
   const [topic, setTopic] = useState();
   const [schwierigkeit, setSchwierigkeit] = useState();
   const [quiz, setQuiz] = useState();
-  const [topicName, setTopicName] = useState("");
 
   const startQuiz = () => { 
     if (topic && schwierigkeit) {
@@ -29,14 +28,16 @@ export default function Home({}) {
         <title>Quiz App - Game</title>
       </Helmet>
       <div className="home_screen">
+        {console.log("TOPIC")}
+        {console.log(topic) }
         {quiz ? (
-          <Gameboard quiz={quiz} topic={topic} topicName={topicName} schwierigkeit={schwierigkeit} onReset={() => setQuiz()} />
+          <Gameboard quiz={quiz} topic={topic} schwierigkeit={schwierigkeit} onReset={() => setQuiz()} />
         ) : (
           <div>
             <div className="App-navi">
               <Navigation />
             </div>
-            <Thema onThemaChange={(topic, topicName) => {setTopic(topic); setTopicName(topicName)}} />
+            <Thema onThemaChange={setTopic} />
             <Schwierigkeitsgrad onSchwierigkeitsChange={setSchwierigkeit} />
             <button className="button_start_quiz" onClick={startQuiz}>Start</button>
           </div>

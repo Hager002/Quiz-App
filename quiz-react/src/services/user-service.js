@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const baseURL = process.env.USER_SERVICE_URL || "http://localhost:5000";
+const baseURL = process.env.USER_SERVICE_URL || "http://localhost:5000"; // backend Server
 
 const instance = axios.create({
   baseURL: baseURL,
 });
 
-/* instance.interceptors.request.use(request => {
+/*instance.interceptors.request.use(request => {
   console.log('Starting Request', request)
   return request
 })
@@ -14,7 +14,7 @@ const instance = axios.create({
 instance.interceptors.response.use(response => {
   console.log('Response:', response)
   return response
-}) */
+})*/
 
 export function register(user) {
   return instance.post("/register", user)

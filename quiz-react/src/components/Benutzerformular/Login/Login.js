@@ -92,9 +92,10 @@ export default function Login({ onLogin, onRegister }) {
                 <Card.Title className="cardInfo__title">BIO Quiz</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                 <Card.Text className="cardInfo__text">
-                  Willkommen liebe Schüler und Schülerinnen. Auf dieser Webseite könnte ihr euch auf
+                  <p>Willkommen liebe Schüler und Schülerinnen. Auf dieser Webseite könnte ihr euch auf
                   spaßiegen Weg für eure Biologie-Klausuren vorbereiten. Ihr könnt zu den verschiedensten
                   Topics ein Quiz spielen um euer Wissen zu überprüfen und zu festigen.{" "}
+                  </p>
                 </Card.Text>
                 <Card.Link href="#"></Card.Link>
               </Card.Body>

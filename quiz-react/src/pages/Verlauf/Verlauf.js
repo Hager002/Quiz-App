@@ -9,14 +9,18 @@ import './verlauf.css';
 const DATETIME_FORMAT = "DD.MM.YYYY HH:mm:ss"
 
 export default function Verlauf({}) {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState();
   const user = useContext(UserContext);
 
   useEffect(() => {
     axios
       .get("/results", {
         params: {
-          q: { user }
+          q: { 
+            user: {
+                  "_id": user._id
+            } 
+          }
         }
       })
       .then(response => setResults(response.data))
@@ -26,7 +30,7 @@ export default function Verlauf({}) {
       });
   }, []);
 
-  return results.length === 0 ? <Loading/> : (
+  return results ? (
     <Fragment>
       <Helmet>
         <title>Quiz App - Verlauf</title>
@@ -38,7 +42,7 @@ export default function Verlauf({}) {
         <div className="overview">
           <h3 className="overview_h3"> Verlaufübersicht </h3>
           <section className="ein_ablauf">
-            {results.map(result =>  
+            { results.length > 0 ? results.map(result =>  
               <div>              
                 <hr/>
                 <p>Datum: <span>{ moment(result.data).format(DATETIME_FORMAT)}</span></p>
@@ -46,10 +50,12 @@ export default function Verlauf({}) {
                 <p>Fragenanzahl: <span>{result.total}</span></p>
                 <p>richtige Antworten: <span>{result.correct}</span></p>
               </div>
+            ) : (
+              <div>Keine Ergebnise vorhanden!</div>
             )}
             </section>
           </div>
       </div>
       </Fragment>
-    );  
+    ) : <Loading/>;  
 }

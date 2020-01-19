@@ -9,11 +9,11 @@ export default function Navigation({ reset }) {
     <div>
       <Navbar className="navbar" variant="tabs">
         <Nav.Item className="nav_item"> 
-        <Link className="nav_item_1" to="/"><SportsEsportsIcon/> Quiz </Link>
+        <Link aria-label="Quiz 1 of 2" className="nav_item_1" to="/"><SportsEsportsIcon/> Quiz </Link>
         </Nav.Item>
 
         <Nav.Item className="nav_item">
-        <Link className="nav_item_2" to="/verlauf"> Verlauf </Link>
+        <Link aria-label="Verlauf 2 of 2" className="nav_item_2" to="/verlauf"> Verlauf </Link>
         </Nav.Item>
       </Navbar>
     </div>
