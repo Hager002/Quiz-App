@@ -1,10 +1,8 @@
 
 ## A React Single Choice Quiz Webapp 
-Dieses Projekt beinhaltet eine React Quiz App.
+Das Projekt beinhaltet ein Quiz Webapp-Prototyp. Diese React Quiz App bietet eine mögliche Methode, Schüler und Schülerinnen mit Lernschwierigkeiten beim Lernen zu unterstützen. Die Webapplikation bietet unterstützung im Unterrichtsfach Biologie der Sekundarstufe 1.
 
-Das Projekt bildet einen Quiz Webapp-Prototypen ab, die Schüler und Schülerinnen mit Lernschwierigkeiten beim Lernen unterstützen soll. Es ist eine mögliche Methode zu lernen. Die Webapplikation bietet unterstützung im Unterrichtsfach Biologie der Sekundarstufe 1. 
-
-Die Applikation besteht aus zwei Projekten. Aus einem Backend-Server und einer React-App. Der Backend-Server wurde mit NodeJS eingerichtet. Die React-App ist das Frontend. 
+Die Fragen für dieses Quiz-Spiel wurden dem Bifi-Aufgabenpool entnommen. [https://aufgabenpool.bifie.at/nawi/index.php]  
 
 ## Projekt starten: 
 Das Frontend kann man im Bowser unter [http://localhost:3000] öffnen. \
