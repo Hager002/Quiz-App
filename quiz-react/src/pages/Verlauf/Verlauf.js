@@ -5,8 +5,10 @@ import Loading from '../../components/loading/loading';
 import axios from '../../components/axios';
 import moment from "moment"; 
 import './verlauf.css';
+import StarRateIcon from '@material-ui/icons/StarRate';
 
-const DATETIME_FORMAT = "DD.MM.YYYY HH:mm:ss"
+
+const DATETIME_FORMAT = "DD.MM.YYYY HH:mm"
 
 export default function Verlauf({}) {
   const [results, setResults] = useState();
@@ -45,10 +47,11 @@ export default function Verlauf({}) {
             { results.length > 0 ? results.map(result =>  
               <div>              
                 <hr/>
+                <h4> <StarRateIcon/> Spiel</h4>
                 <p>Datum: <span>{ moment(result.data).format(DATETIME_FORMAT)}</span></p>
                 <p>Thema: <span>{result.topic[0].name}</span></p>
                 <p>Fragenanzahl: <span>{result.total}</span></p>
-                <p>richtige Antworten: <span>{result.correct}</span></p>
+                <p>Richtige Antworten: <span>{result.correct}</span></p>
               </div>
             ) : (
               <div>Keine Ergebnise vorhanden!</div>

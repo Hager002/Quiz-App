@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TimerIcon from '@material-ui/icons/Timer';
 class Timer extends Component {
   state = {
-    min: 3,
+    min: 1,
     sec: 30
   };
 
