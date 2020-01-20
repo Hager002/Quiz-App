@@ -1,5 +1,5 @@
 import React from "react";
-import Answer from './answer';
+import Answer from '../Answer/answer';
 import './question.css';
 
 export default function Question({question, onClick}) {
@@ -15,7 +15,7 @@ export default function Question({question, onClick}) {
             onClick={onClick} 
             selectedAnswer={question.selectedAnswer} 
           />)
-        }
+        } 
       </div>
     </div>
   );

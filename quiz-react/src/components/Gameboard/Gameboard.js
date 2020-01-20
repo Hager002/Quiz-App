@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import Questions from "./FragenNeu/FragenNeu";
+import Questions from "./Questions/Questions";
 import Timer from "../../pages/Home/Schwirigkeitsgrad/Timer";
 import './gameboard.css';
 import axios from "../axios";

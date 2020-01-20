@@ -7,7 +7,7 @@ import Home from "./pages/Home/Home";
 import Verlauf from "./pages/Verlauf/Verlauf";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "./style/style.scss";
+import "./style/style.scss"; 
 
 function App() { 
   const [user, setUser] = useState();

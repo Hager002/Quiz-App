@@ -4,7 +4,7 @@ import Question from "./Question/Question";
 import QuizNav from "./QuizNav/QuizNav";
 import Loading from '../../loading';
 import Ergebnis from './Ergebnis/Ergebnis';
-import Quizinfo from './Quizinfo/Quizinfo';
+import QuizKontext from './QuizKontext/QuizKontext';
 import ErgebnisNav from './Ergebnis/ErgebnisNav/ErgebnisNav';
 
 export default function Questions({quiz, topic, onReset, anzahl}) {
@@ -62,7 +62,7 @@ export default function Questions({quiz, topic, onReset, anzahl}) {
           </div>
         ) : (
           <div > 
-            <Quizinfo currentQuestionValue={currentQuestion+1} topicName={topic.name} total={questions.length} />
+            <QuizKontext currentQuestionValue={currentQuestion+1} topicName={topic.name} total={questions.length} />
             <Question question={questions[currentQuestion]} onClick={validateAnswer} />
             <QuizNav onBack={back} onForward={forward} onReset={onReset}/>
           </div>

@@ -1,8 +1,8 @@
 import React from "react";
-import './quizinfo.css'; 
+import './quizKontext.css'; 
 
 
-export default function Kontext({ currentQuestionValue, topicName, total }) {
+export default function QuizKontext({ currentQuestionValue, topicName, total }) {
   return (
     <div>
       <div className="button-container">
